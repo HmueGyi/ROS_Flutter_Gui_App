@@ -85,6 +85,10 @@ class _SshOverWsSocket implements SSHSocket {
     } catch (_) {}
     _in.close();
   }
+
+// hmue_gyi add
+  @override
+  Future<void> flush() async {}
 }
 
 Future<Object?> sshConnect({

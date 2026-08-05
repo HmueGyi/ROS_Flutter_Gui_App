@@ -1,4 +1,53 @@
+# ROS 2 / CMake / Build Outputs
 build/
-/log/
-/install/
+log/
+install/
 dist/
+CMakeFiles/
+CMakeCache.txt
+*.cmake.in
+*.cmake.out
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.a
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+**/doc/api/
+**/ephemeral/
+**/flutter/ephemeral/
+**/Flutter/ephemeral/
+app/android/local.properties
+app/ios/Flutter/Generated.xcconfig
+app/ios/Flutter/flutter_export_environment.sh
+app/ios/Runner/GeneratedPluginRegistrant.*
+app/macos/Flutter/GeneratedPluginRegistrant.swift
+app/app.*.symbols
+app/app.*.map.json
+
+# IDEs and Editors
+.idea/
+*.iml
+*.ipr
+*.iws
+.cxx/
+.vscode/c_cpp_properties.json
+.vscode/ipch/
+*.swp
+*.swo
+*~
+
+# OS / Misc / Logs
+.DS_Store
+Thumbs.db
+*.log
+*.pyc
+__pycache__/
