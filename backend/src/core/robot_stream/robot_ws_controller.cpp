@@ -25,7 +25,7 @@ void RobotWsController::handleNewMessage(const drogon::WebSocketConnectionPtr& c
     return;
   }
   switch (msg.payload_case()) {
-    case pb::ClientRobotMessage::kCmdVel: {
+    case pb::ClientRobotMessage::kCmdVelJoy: {
       const auto& tw = msg.cmd_vel_joy();
       const double vx = tw.linear().x();
       const double vy = tw.linear().y();

@@ -12,7 +12,7 @@ enum class TopologyMapPointType{
   ChargingStation=1,
 };
 
-// 定义枚举值与字符串的映射
+// Define mapping between enum values and strings
 NLOHMANN_JSON_SERIALIZE_ENUM(TopologyMapPointType, {
     {TopologyMapPointType::NavGoal, "NavGoal"},
     {TopologyMapPointType::ChargingStation, "ChargingStation"}
@@ -30,7 +30,7 @@ struct TopologyMap {
     PointInfo(double _x, double _y, double _theta, std::string _name)
         : x(_x), y(_y), theta(_theta), name(_name) {}
 
-    // 反射宏
+    // Reflection macro
     NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(PointInfo, x, y, theta, name, type)
   };
 
@@ -40,7 +40,7 @@ struct TopologyMap {
 
     MapProperty() {}
     
-    // 反射宏
+    // Reflection macro
     NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(MapProperty, support_controllers, support_goal_checkers)
   };
 
@@ -52,7 +52,7 @@ struct TopologyMap {
     RouteInfo() {}
     RouteInfo(const std::string& _controller, const std::string& _goal_checker, float _speed_limit) : controller(_controller), goal_checker(_goal_checker), speed_limit(_speed_limit) {}
 
-    // 反射宏
+    // Reflection macro
     NLOHMANN_DEFINE_TYPE_INTRUSIVE_WITH_DEFAULT(RouteInfo, controller, goal_checker, speed_limit)
   };
 
@@ -88,13 +88,13 @@ struct TopologyMap {
     if (it != points.end()) {
       return *it;
     }
-    // 如果找不到点，返回一个空的PointInfo对象
+    // If the point is not found, return an empty PointInfo object
     return PointInfo();
   }
   std::vector<PointInfo> GetPoints() { return points; }
 };
 
-// 自定义 routes 字段的序列化/反序列化，支持数组格式
+// Custom serialization/deserialization for routes field, supporting array format
 inline void to_json(nlohmann::json& j, const TopologyMap& t) {
   j = nlohmann::json{
     {"map_name", t.map_name},
@@ -102,7 +102,7 @@ inline void to_json(nlohmann::json& j, const TopologyMap& t) {
     {"points", t.points}
   };
   
-  // 将 map 格式的 routes 转换为数组格式
+  // Convert map format routes to array format
   nlohmann::json routes_array = nlohmann::json::array();
   for (const auto& route_pair : t.routes) {
     const std::string& from_point = route_pair.first;
@@ -133,11 +133,11 @@ inline void from_json(const nlohmann::json& j, TopologyMap& t) {
     j.at("points").get_to(t.points);
   }
   
-  // 将数组格式的 routes 转换为 map 格式
+  // Convert array format routes to map format
   t.routes.clear();
   if (j.contains("routes")) {
     if (j["routes"].is_array()) {
-      // 数组格式：{"from_point": "...", "to_point": "...", "route_info": {...}}
+      // Array format: {"from_point": "...", "to_point": "...", "route_info": {...}}
       for (const auto& route_item : j["routes"]) {
         std::string from_point = route_item.at("from_point").get<std::string>();
         std::string to_point = route_item.at("to_point").get<std::string>();
@@ -146,7 +146,7 @@ inline void from_json(const nlohmann::json& j, TopologyMap& t) {
         t.routes[from_point][to_point] = route_info;
       }
     } else if (j["routes"].is_object()) {
-      // 对象格式（向后兼容）：{"from_point": {"to_point": {...}}}
+      // Object format (backward compatible): {"from_point": {"to_point": {...}}}
       for (const auto& route_pair : j["routes"].items()) {
         std::string from_point = route_pair.key();
         for (const auto& dest_pair : route_pair.value().items()) {

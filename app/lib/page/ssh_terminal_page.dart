@@ -265,7 +265,7 @@ class _SshTerminalPageState extends State<SshTerminalPage> {
     if (!sshRemotePlatformSupported) {
       setState(() {
         _busy = false;
-        _error = '当前平台不支持 SSH';
+        _error = 'SSH is not supported on this platform';
       });
       return;
     }
@@ -352,7 +352,7 @@ class _SshTerminalPageState extends State<SshTerminalPage> {
     final raw = _buffer.toString();
     if (raw.isEmpty) {
       return SelectableText(
-        '(已连接，输入命令后回车)',
+        '(Connected. Type a command and press Enter)',
         style: baseStyle.copyWith(color: theme.hintColor),
         textAlign: TextAlign.start,
       );
@@ -376,7 +376,7 @@ class _SshTerminalPageState extends State<SshTerminalPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('SSH 终端'),
+        title: const Text('SSH Terminal'),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
@@ -401,7 +401,7 @@ class _SshTerminalPageState extends State<SshTerminalPage> {
               actions: [
                 TextButton(
                   onPressed: () => setState(() => _error = null),
-                  child: const Text('关闭'),
+                  child: const Text('Close'),
                 ),
               ],
             ),
@@ -434,7 +434,7 @@ class _SshTerminalPageState extends State<SshTerminalPage> {
                     controller: _input,
                     enabled: !_busy && _session != null,
                     decoration: const InputDecoration(
-                      hintText: '命令',
+                      hintText: 'Command',
                       border: OutlineInputBorder(),
                       isDense: true,
                     ),
@@ -445,7 +445,7 @@ class _SshTerminalPageState extends State<SshTerminalPage> {
                 FilledButton(
                   onPressed:
                       (_busy || _session == null) ? null : _sendLine,
-                  child: const Text('发送'),
+                  child: const Text('Send'),
                 ),
               ],
             ),

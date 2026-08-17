@@ -492,8 +492,8 @@ class TileMapState extends State<TileMap> {
       for (final entry in edits.entries) {
         final key = entry.key;
         final value = entry.value;
-        // value 0 表示清除；100 表示障碍物。
-        // 为了让“原图障碍”也能被覆盖，这里要显式存储 0。
+        // value 0 means clear; 100 means obstacle.
+        // To allow overriding existing map obstacles, explicitly store 0 here.
         if (value == 0 || value > 0) {
           _obstacleEdits[key] = value;
         }
@@ -519,10 +519,10 @@ class TileMapState extends State<TileMap> {
 
     final tool = widget.obstacleEditTool;
     if (tool == ObstacleEditTool.None) return;
-    // 障碍物编辑值语义：
-    // 100: 有障碍物（黑色单元）
-    // 0: 无障碍物（白色单元，表示清除）
-    // 100: 有障碍（黑色）；0: 无障碍（白色，覆盖原障碍）
+    // Obstacle edit value semantics:
+    // 100: obstacle present (black cell)
+    // 0: no obstacle (white cell, means clear)
+    // 100: obstacle (black); 0: free (white, overrides existing obstacle)
     final value = tool == ObstacleEditTool.Brush ? 100 : 0;
 
     final res = meta.resolution;

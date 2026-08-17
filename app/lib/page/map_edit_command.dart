@@ -207,7 +207,7 @@ class CommandManager {
     }
   }
 
-  // 只记录命令，不执行（用于已经执行过的操作）
+  // Record command only, do not execute (for operations already performed)
   void recordCommand(MapEditCommand command) {
     _undoStack.add(command);
     if (_undoStack.length > maxHistorySize) {

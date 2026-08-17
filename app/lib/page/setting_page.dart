@@ -253,12 +253,12 @@ class _SettingsPageState extends State<SettingsPage> {
 
   List<Widget> _buildSettingGroups() {
     return [
-      _buildLanguageSection(),
+      // _buildLanguageSection(),
       _buildBasicSection(),
       _buildBackendSettingsSection(),
       _buildLayersSection(),
       _buildOrientationSection(),
-      // ... 其他设置组
+      
     ];
   }
 

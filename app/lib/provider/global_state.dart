@@ -126,7 +126,7 @@ class GlobalState extends ChangeNotifier {
         }
         notifyListeners();
       } catch (e) {
-        print('加载图层设置失败: $e');
+        print('Failed to load layer settings: $e');
       }
     }
     final legacyStyle = prefs.getString('localCostmapDisplayStyle');

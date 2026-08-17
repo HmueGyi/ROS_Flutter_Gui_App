@@ -244,13 +244,13 @@ void saveTopologyMapToJson(
 ){
   std::ofstream ofs(json_file);
   if (!ofs.is_open()) {
-    LOGGER_ERROR("无法打开拓扑地图JSON文件: {}", json_file);
+    LOGGER_ERROR("Cannot open topology map JSON file: {}", json_file);
     return;
   }
   nlohmann::json j=topo_map_msg;
   ofs << j.dump(2);
   ofs.close();
-  LOGGER_INFO("保存拓扑地图JSON文件成功: {}", json_file);
+  LOGGER_INFO("Successfully saved topology map JSON file: {}", json_file);
 }
 
 LOAD_MAP_STATUS LoadTopologyMapFromJson(const std::string & json_file, ros_gui_backend::TopologyMap& topo_map_msg) {
@@ -259,7 +259,7 @@ LOAD_MAP_STATUS LoadTopologyMapFromJson(const std::string & json_file, ros_gui_b
     std::string file_path = expand_user_home_dir_if_needed(json_file, get_home_dir());
     std::ifstream ifs(file_path);
     if (!ifs.is_open()) {
-        LOGGER_ERROR("无法打开拓扑地图JSON文件: {}", file_path);
+        LOGGER_ERROR("Cannot open topology map JSON file: {}", file_path);
         return MAP_DOES_NOT_EXIST;
     }
     try {
@@ -268,11 +268,11 @@ LOAD_MAP_STATUS LoadTopologyMapFromJson(const std::string & json_file, ros_gui_b
         ifs >> j;
         topo_map_msg = j.get<TopologyMap>();
         
-        LOGGER_INFO("成功加载拓扑地图: {} 个点, {} 条路由", topo_map_msg.points.size(),
+        LOGGER_INFO("Successfully loaded topology map: {} points, {} routes", topo_map_msg.points.size(),
             topo_map_msg.routes.size());  
             
     } catch (const std::exception& e) {
-        LOGGER_ERROR("解析拓扑地图JSON文件失败: {}", e.what());
+        LOGGER_ERROR("Failed to parse topology map JSON file: {}", e.what());
         return INVALID_MAP_DATA;
     }
     return LOAD_MAP_SUCCESS;

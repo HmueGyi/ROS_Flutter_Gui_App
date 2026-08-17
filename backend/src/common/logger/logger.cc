@@ -10,20 +10,20 @@ Logger::Logger() {
   START_EASYLOGGINGPP(argc, argv);
   el::Configurations defaultConf;
   defaultConf.setToDefault();
-  // 设置最大文件大小
+  // Set maximum file size
   defaultConf.setGlobally(el::ConfigurationType::MaxLogFileSize, "100000000");
-  // 是否写入文件
+  // Whether to write to file
   defaultConf.setGlobally(el::ConfigurationType::ToFile, "true");
-  // 是否输出控制台
+  // Whether to output to console
   defaultConf.setGlobally(el::ConfigurationType::ToStandardOutput, "true");
   // filename
   defaultConf.setGlobally(el::ConfigurationType::Filename,
                           "ros_gui_app_backend.log");
   defaultConf.setGlobally(el::ConfigurationType::Format, "[%datetime][%level] %msg");
-  // 设置配置文件
+  // Set configuration file
   el::Loggers::reconfigureLogger("default", defaultConf);
 
-  /// 防止Fatal级别日志中断程序
+  /// Prevent Fatal level logs from interrupting the program
   el::Loggers::addFlag(el::LoggingFlag::DisableApplicationAbortOnFatalLog);
 }
 Logger::~Logger() {}

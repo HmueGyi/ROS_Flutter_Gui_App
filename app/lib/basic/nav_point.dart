@@ -4,9 +4,9 @@ enum NavPointType {
 }
 
 class NavPoint {
-  double x; // 地图坐标
-  double y; // 地图坐标
-  double theta; // 方向角度（弧度）
+  double x; // Map coordinates
+  double y; // Map coordinates
+  double theta; // Heading angle (radians)
   String name;
   NavPointType type;
 
@@ -53,7 +53,7 @@ class NavPoint {
     };
   }
 
-  // 复制并修改某些属性
+  // Copy with modified properties
   NavPoint copyWith({
     double? x,
     double? y,

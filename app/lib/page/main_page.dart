@@ -37,10 +37,10 @@ class _MainFlamePageState extends State<MainFlamePage> {
   bool _isRecoveringConnection = false;
   bool _sshRailExpanded = false;
 
-  // 相机相关变量
-  Offset camPosition = Offset(30, 10); // 初始位置
-  bool isCamFullscreen = false; // 是否全屏
-  Offset camPreviousPosition = Offset(30, 10); // 保存进入全屏前的位置
+  // Camera-related variables
+  Offset camPosition = Offset(30, 10); // Initial position
+  bool isCamFullscreen = false; // Whether in fullscreen mode
+  Offset camPreviousPosition = Offset(30, 10); // Save position before entering fullscreen
   late double camWidgetWidth;
   late double camWidgetHeight;
 
@@ -221,20 +221,20 @@ class _MainFlamePageState extends State<MainFlamePage> {
     Navigator.pushNamed(context, '/setting');
   }
 
-  // 设置诊断数据监听器
+  // Set up diagnostic data listener
   void _setupDiagnosticListener() {
     context.read<WsChannel>().diagnosticManager.setOnNewErrorsWarnings(_onNewErrorsWarnings);
   }
 
 
-  // 新错误/警告/失活回调
+  // Callback for new errors/warnings/stale states
   void _onNewErrorsWarnings(List<Map<String, dynamic>> newErrorsWarnings) {
     for (var errorWarning in newErrorsWarnings) {
       final hardwareId = errorWarning['hardwareId'] as String;
       final componentName = errorWarning['componentName'] as String;
       final state = errorWarning['state'] as DiagnosticState;
       
-      // 只对错误、警告和失活状态显示toast
+      // Only show toast for error, warning, and stale states
       if (state.level == DiagnosticStatus.ERROR || 
           state.level == DiagnosticStatus.WARN || 
           state.level == DiagnosticStatus.STALE) {
@@ -243,7 +243,7 @@ class _MainFlamePageState extends State<MainFlamePage> {
     }
   }
 
-  // 显示诊断toast通知
+  // Show diagnostic toast notification
   void _showDiagnosticToast(String hardwareId, String componentName, DiagnosticState state) {
     if (!mounted) return;
     
@@ -272,7 +272,7 @@ class _MainFlamePageState extends State<MainFlamePage> {
         iconData = Icons.schedule;
         break;
       default:
-        return; // 其他状态不显示toast
+        return; // Do not show toast for other states
     }
     
     final l10n = AppLocalizations.of(context)!;
@@ -429,7 +429,7 @@ class _MainFlamePageState extends State<MainFlamePage> {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              // 线速度显示
+              // Linear velocity display
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: RawChip(
@@ -448,7 +448,7 @@ class _MainFlamePageState extends State<MainFlamePage> {
                   ),
                 ),
               ),
-              // 角速度显示
+              // Angular velocity display
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: RawChip(
@@ -465,7 +465,7 @@ class _MainFlamePageState extends State<MainFlamePage> {
                   ),
                 ),
               ),
-              // 电池电量显示
+              // Battery level display
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: RawChip(
@@ -484,7 +484,7 @@ class _MainFlamePageState extends State<MainFlamePage> {
                   ),
                 ),
               ),
-              // 导航状态显示
+              // Navigation status display
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: RawChip(
@@ -504,7 +504,7 @@ class _MainFlamePageState extends State<MainFlamePage> {
                   ),
                 ),
               ),
-              // 诊断状态显示（监听 DiagnosticManager，而非仅 Consumer<WsChannel>）
+              // Diagnostic status display (listens to DiagnosticManager, not just Consumer<WsChannel>)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: Builder(
@@ -1011,7 +1011,7 @@ class _MainFlamePageState extends State<MainFlamePage> {
             visible: !globalState.isManualCtrl.value,
             child: Row(
               children: [
-                // 停止导航按钮
+                // Stop navigation button
                 Consumer<WsChannel>(
                   builder: (context, wsChannel, child) {
                     return ValueListenableBuilder<ActionStatus>(
@@ -1138,7 +1138,7 @@ class _MainFlamePageState extends State<MainFlamePage> {
     }
   }
   
-  // 构建相机显示组件
+  // Build camera display widget
   Widget _buildCameraWidget(BuildContext context, ThemeData theme) {
     if (!showCamera) return const SizedBox.shrink();
     
@@ -1153,7 +1153,7 @@ class _MainFlamePageState extends State<MainFlamePage> {
             setState(() {
               double newX = camPosition.dx + details.delta.dx;
               double newY = camPosition.dy + details.delta.dy;
-              // 限制位置在屏幕范围内
+              // Clamp position within screen bounds
               newX = newX.clamp(0.0, screenSize.width - camWidgetWidth);
               newY = newY.clamp(0.0, screenSize.height - camWidgetHeight);
               camPosition = Offset(newX, newY);
@@ -1165,7 +1165,7 @@ class _MainFlamePageState extends State<MainFlamePage> {
             children: [
               LayoutBuilder(
                 builder: (context, constraints) {
-                  // 在非全屏状态下，获取屏幕宽高
+                  // In non-fullscreen mode, get screen dimensions
                   double containerWidth = isCamFullscreen
                       ? screenSize.width
                       : camWidgetWidth;
@@ -1189,16 +1189,16 @@ class _MainFlamePageState extends State<MainFlamePage> {
                         : Icons.fullscreen,
                     color: Colors.black,
                   ),
-                  constraints: BoxConstraints(), // 移除按钮的默认大小约束，变得更加紧凑
+                  constraints: BoxConstraints(), // Remove default button size constraints for a more compact look
                   onPressed: () {
                     setState(() {
                       isCamFullscreen = !isCamFullscreen;
                       if (isCamFullscreen) {
-                        // 进入全屏时，保存当前位置，并将位置设为 (0, 0)
+                        // When entering fullscreen, save current position and set to (0, 0)
                         camPreviousPosition = camPosition;
                         camPosition = Offset(0, 0);
                       } else {
-                        // 退出全屏时，恢复之前的位置
+                        // When exiting fullscreen, restore previous position
                         camPosition = camPreviousPosition;
                       }
                     });
@@ -1218,7 +1218,7 @@ class _MainFlamePageState extends State<MainFlamePage> {
     );
   }
 
-  // 构建地图图例组件
+  // Build map legend widget
   Widget _buildMapLegend(BuildContext context, ThemeData theme) {
     final AppLocalizations? l10n = AppLocalizations.of(context);
     final double maxLegendWidth =
@@ -1257,7 +1257,7 @@ class _MainFlamePageState extends State<MainFlamePage> {
     );
   }
 
-  // 构建精简图例项目
+  // Build compact legend item
   Widget _buildCompactLegendItem(String label, Color color) {
     return Row(
       mainAxisSize: MainAxisSize.min,

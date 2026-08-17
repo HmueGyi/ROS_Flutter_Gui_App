@@ -26,7 +26,7 @@ enum KeyName {
 
 class JoyStickEvent {
   late KeyName keyName;
-  bool reverse = false; //是否反转(反转填-1)Q
+  bool reverse = false; // Whether to reverse (use -1 to invert)
   double maxValue = 32767;
   double minValue = -32767;
   double value = 0;
@@ -62,7 +62,7 @@ class Setting {
   int MapTileOccThresh = 65;
   final ValueNotifier<int> MapTileStyleEpoch = ValueNotifier(0);
 
-// 定义一个映射关系，将Dart中的类名映射到JavaScript中的类名
+// Define a mapping from Dart class names to JavaScript class names
   Map<String, JoyStickEvent> axisMapping = {
     "AXIS_X": JoyStickEvent(KeyName.leftAxisX),
     "AXIS_Y": JoyStickEvent(KeyName.leftAxisY),
@@ -92,13 +92,13 @@ class Setting {
     prefs = await SharedPreferences.getInstance();
     _initialized = true;
 
-    // 从配置中加载手柄映射
+    // Load gamepad mapping from config
     await _loadGamepadMapping();
 
     return true;
   }
 
-  //设置语言回调
+  // Set language callback
   late Function(Locale locale) setLanguage;
 
   Future<void> _loadGamepadMapping() async {
@@ -107,11 +107,11 @@ class Setting {
       try {
         final mapping = jsonDecode(mappingStr);
 
-        // 清空现有映射
+        // Clear existing mappings
         axisMapping.clear();
         buttonMapping.clear();
 
-        // 加载 axisMapping
+        // Load axisMapping
         if (mapping['axisMapping'] != null) {
           (mapping['axisMapping'] as Map<String, dynamic>)
               .forEach((key, value) {
@@ -125,7 +125,7 @@ class Setting {
           });
         }
 
-        // 加载 buttonMapping
+        // Load buttonMapping
         if (mapping['buttonMapping'] != null) {
           (mapping['buttonMapping'] as Map<String, dynamic>)
               .forEach((key, value) {
@@ -140,14 +140,14 @@ class Setting {
         }
       } catch (e) {
         print('Error loading gamepad mapping: $e');
-        // 如果加载失败，使用默认映射
+        // If loading fails, use default mapping
         resetGamepadMapping();
       }
     }
   }
 
   KeyName _parseKeyName(String keyNameStr) {
-    // 移除 'KeyName.' 前缀
+    // Remove 'KeyName.' prefix
     final enumStr = keyNameStr.replaceAll('KeyName.', '');
     return KeyName.values.firstWhere(
       (e) => e.toString() == 'KeyName.$enumStr',
@@ -156,7 +156,7 @@ class Setting {
   }
 
   Future<void> saveGamepadMapping() async {
-    // 将默认映射保存到配置中
+    // Save the default mapping to config
     final mapping = {
       'axisMapping': axisMapping.map((key, value) => MapEntry(key, {
             'keyName': value.keyName.toString(),
@@ -179,7 +179,7 @@ class Setting {
     axisMapping.clear();
     buttonMapping.clear();
 
-    // 恢复默认的轴映射
+    // Restore default axis mapping
     axisMapping.addAll({
       "AXIS_X": JoyStickEvent(KeyName.leftAxisX),
       "AXIS_Y": JoyStickEvent(KeyName.leftAxisY),
@@ -191,7 +191,7 @@ class Setting {
       "buttonUpDown": JoyStickEvent(KeyName.buttonUpDown),
     });
 
-    // 恢复默认的按钮映射
+    // Restore default button mapping
     buttonMapping.addAll({
       "KEYCODE_BUTTON_A": JoyStickEvent(KeyName.buttonA,
           maxValue: 1, minValue: 0, reverse: true),
@@ -207,7 +207,7 @@ class Setting {
           maxValue: 1, minValue: 0, reverse: true),
     });
 
-    // 将默认映射保存到配置中
+    // Save the default mapping to config
     final mapping = {
       'axisMapping': axisMapping.map((key, value) => MapEntry(key, {
             'keyName': value.keyName.toString(),
@@ -684,7 +684,7 @@ class Setting {
     return _guiStr('SpeedCtrlTopic', "/cmd_vel_joy");
   }
 
-  // 添加最大速度设置方法
+  // Methods to set maximum velocity
   void setMaxVx(String value) {
     prefs.setString('MaxVx', value);
   }
@@ -705,7 +705,7 @@ class Setting {
     return TempConfigType.ROS2;
   }
 
-  // 添加最大速度获取方法
+  // Methods to get maximum velocity
   double get maxVx {
     return double.parse(prefs.getString("MaxVx") ?? "0.1");
   }
@@ -718,7 +718,7 @@ class Setting {
     return double.parse(prefs.getString("MaxVw") ?? "0.3");
   }
 
-  // 添加图像设置方法
+  // Methods to set image settings
   void setImagePort(String port) {
     prefs.setString('imagePort', port);
   }
@@ -735,7 +735,7 @@ class Setting {
     prefs.setDouble('imageHeight', height);
   }
 
-  // 添加框架名称设置方法
+  // Methods to set frame name settings
   void setMapFrameName(String name) {
     _backendGuiStrings['MapFrameName'] = name;
   }
@@ -744,12 +744,12 @@ class Setting {
     _backendGuiStrings['BaseLinkFrameName'] = name;
   }
 
-  // 添加通用配置设置方法
+  // General config setter method
   void setConfig(String key, String value) {
     prefs.setString(key, value);
   }
 
-  // 基本设置相关方法
+  // Basic settings methods
   void setRobotIp(String ip) {
     final p = _prefsOrNull;
     if (p == null) return;
@@ -762,13 +762,13 @@ class Setting {
     p.setString('robotPort', port);
   }
 
-  // 地图相关方法
+  // Map-related methods
 
   void setMapMetadataTopic(String topic) {
     prefs.setString('mapMetadataTopic', topic);
   }
 
-  // 定位相关方法
+  // Localization-related methods
 
   void setInitPoseTopic(String topic) {
     prefs.setString('initPoseTopic', topic);
@@ -778,7 +778,7 @@ class Setting {
     prefs.setString('amclPoseTopic', topic);
   }
 
-  // 导航相关方法
+  // Navigation-related methods
   void setMoveBaseTopic(String topic) {
     prefs.setString('moveBaseTopic', topic);
   }
@@ -806,7 +806,7 @@ class Setting {
   void setTracePathTopic(String topic) {
     _backendGuiStrings['TracePathTopic'] = topic;
   }
-  // 状态监控相关方法
+  // Status monitoring methods
   void setRobotStatusTopic(String topic) {
     prefs.setString('robotStatusTopic', topic);
   }
@@ -815,7 +815,7 @@ class Setting {
     prefs.setString('jointStatesTopic', topic);
   }
   
-  // 图层开关配置相关方法
+  // Layer toggle config methods
   void setShowGlobalCostmap(bool show) {
     prefs.setBool('showGlobalCostmap', show);
   }
@@ -856,7 +856,7 @@ class Setting {
     return prefs.getBool('showTopologyPath') ?? true;
   }
   
-  // 机器人尺寸相关方法
+  // Robot size methods
   void setRobotSize(double size) {
     prefs.setDouble('robotSize', size);
   }
@@ -876,7 +876,7 @@ extension on Setting {
 
 Setting globalSetting = Setting();
 
-// 初始化全局配置
+// Initialize global configuration
 Future<bool> initGlobalSetting() async {
   return globalSetting.init();
 }

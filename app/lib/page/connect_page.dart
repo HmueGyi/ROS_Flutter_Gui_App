@@ -329,7 +329,7 @@ class _ConnectPageState extends State<ConnectPage>
           }
           toastification.show(
             context: context,
-            title: Text("后台连接失败: $err"),
+            title: Text("Backend connection failed: $err"),
             autoCloseDuration: const Duration(seconds: 5),
           );
           return;

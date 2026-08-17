@@ -17,11 +17,11 @@ class TF2Dart {
     _warnThrottleMs[key] = now;
     debugPrint(message);
   }
-  Map<String, Set<String>> adj = {}; //边
+  Map<String, Set<String>> adj = {}; // edges
   Map<String, List<TransformElement>> adjTrasnform = {};
 
   void updateTF(TF data) {
-    // 添加双向边，因为TF转换可以双向进行
+    // Add bidirectional edges, since TF transforms can go in both directions
     for (var trans in data.transforms) {
       String parentFrame = trans.header!.frameId;
       String childFrame = trans.childFrameId;
@@ -34,19 +34,19 @@ class TF2Dart {
         childFrame = childFrame.replaceFirst("/", "");
       }
 
-      // 添加正向边
+      // Add forward edge
       if (!adj.containsKey(parentFrame)) {
         adj[parentFrame] = {};
       }
       adj[parentFrame]?.add(childFrame);
 
-      // 添加反向边
+      // Add reverse edge
       if (!adj.containsKey(childFrame)) {
         adj[childFrame] = {};
       }
       adj[childFrame]?.add(parentFrame);
 
-      // 存储转换关系
+      // Store the transform relationship
       if (!adjTrasnform.containsKey(parentFrame)) {
         adjTrasnform[parentFrame] = [];
       }
@@ -72,7 +72,7 @@ class TF2Dart {
       var path = shortPath(from, to);
       if (path.isEmpty) {
         _throttledWarn('path|$from|$to', 'Warning: No path found from $from to $to');
-        return RobotPose(0, 0, 0); // 返回默认位置而不是抛出异常
+        return RobotPose(0, 0, 0); // Return default position instead of throwing an exception
       }
 
       RobotPose pose = RobotPose(0, 0, 0);
@@ -102,7 +102,7 @@ class TF2Dart {
       return pose;
     } catch (e) {
       _throttledWarn('lookup_err', 'Error in lookUpForTransform: $e');
-      return RobotPose(0, 0, 0); // 返回默认位置
+      return RobotPose(0, 0, 0); // Return default position
     }
   }
 
@@ -123,7 +123,7 @@ class TF2Dart {
     while (queue.isNotEmpty) {
       String current = queue.removeFirst();
       if (current == to) {
-        // 构建路径
+        // Build the path
         List<String> path = [];
         String node = to;
         while (node != "") {

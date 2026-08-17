@@ -1,7 +1,7 @@
-arb-dir: lib/language/l10n  #指定arb多国语文件目录
-template-arb-file: app_zh.arb #指定arb多国语文件
+arb-dir: lib/language/l10n  #Specify the directory for arb files
+template-arb-file: app_en.arb #Specify the template arb file
 output-dir: lib/language/l10n/gen
 output-class: AppLocalizations
-output-localization-file: app_localizations.dart  #指定多国语配置生成的代码文件，代码中自动生成类文件AppLocalizations.dart
+output-localization-file: app_localizations.dart  #Specify the generated dart file name
 untranslated-messages-file: lib/language/l10n/gen/app_localizations_untranslated.json
 format: true

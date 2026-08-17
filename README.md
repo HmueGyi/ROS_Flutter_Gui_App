@@ -1,14 +1,12 @@
 # ROS Flutter GUI App
 
-[中文说明](#1-项目简介) | [English](README_EN.md)
 
 <p align="center">
   <img src="https://img.shields.io/github/last-commit/chengyangkj/ROS_Flutter_Gui_App?style=flat-square" alt="GitHub last commit"/>
   <img src="https://img.shields.io/github/stars/chengyangkj/ROS_Flutter_Gui_App?style=flat-square" alt="GitHub stars"/>
   <img src="https://img.shields.io/github/forks/chengyangkj/ROS_Flutter_Gui_App?style=flat-square" alt="GitHub forks"/>
   <img src="https://img.shields.io/github/issues/chengyangkj/ROS_Flutter_Gui_App?style=flat-square" alt="GitHub issues"/>
-  <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&amp;k=mvzoO6tJQtu0ZQYa_itHW7JrT0i4OCdK&amp;authKey=exOT53pUpRG85mwuSMstWKbLlnrme%2FEuJE0Rt%2Fw6ONNvfHqftoWMay03mk1Qi7yv&amp;noverify=0&amp;group_code=797497206"><img alt="QQ 群" src="https://img.shields.io/badge/QQ%e7%be%a4-797497206-purple"/></a>
-  <img src="https://img.shields.io/badge/Flutter-3.29.3-blue?style=flat-square" alt="Flutter version"/>
+    <img src="https://img.shields.io/badge/Flutter-3.29.3-blue?style=flat-square" alt="Flutter version"/>
 </p>
 
 <p align="center">
@@ -16,96 +14,60 @@
   <img src="https://github.com/chengyangkj/ROS_Flutter_Gui_App/actions/workflows/ros_humble_build.yaml/badge.svg" alt="ROS 2 Humble backend"/>
 </p>
 
-## 1. 项目简介
+## 1. Introduction
 
-基于 C/S 架构的 ROS 人机交互软件。借助 Flutter 的跨端能力，可在 Web、Android、iOS、macOS 等多端运行（界面布局侧重移动端）。
+ROS human–machine interface software in a **client–server** layout. Flutter runs the UI on Web, Android, iOS, macOS, and more (layout is mobile-oriented).
 
-自 v2.0 起，为提高渲染与通信效率，采用**自定义 C++ 后端**与前端直连，**不再依赖 rosbridge**。仍使用 rosbridge 的版本见 [v1.2.5](https://github.com/chengyangkj/ROS_Flutter_Gui_App/tree/v1.2.5)。
+From **v2.0** onward, a **custom C++ backend** talks directly to the client for better rendering and throughput—**rosbridge is no longer required**. The last rosbridge-based release is [v1.2.5](https://github.com/chengyangkj/ROS_Flutter_Gui_App/tree/v1.2.5).
 
-| 模块 | 说明 |
+| Module | Description |
 | --- | --- |
-| **backend** | 运行于机器人侧，与 ROS 2 对接，提供 HTTP、WebSocket 等接口；当前主要兼容 ROS 2（ROS 1 接口预留，欢迎 PR） |
-| **app** | Flutter 客户端 / Web 前端，与后端通信并完成展示 |
+| **backend** | Runs on the robot, interfaces with ROS 2, exposes HTTP, WebSocket, etc.; primarily ROS 2 today (ROS 1 hooks reserved—PRs welcome) |
+| **app** | Flutter / Web client talking to that backend |
 
-更细的接口、目录与配置见：
+More detail on APIs, directories, and configuration:
 
-| 文档 | 内容 |
+| Doc | Contents |
 | --- | --- |
-| [backend/README.md](backend/README.md) · [backend/README_EN.md](backend/README_EN.md) | 后端编译与部署、进程结构、数据目录、`config.yaml`、HTTP / ROS 摘要 |
-| [app/README.md](app/README.md) · [app/README_EN.md](app/README_EN.md) | 前端依赖与构建、连接方式、功能与设置、使用流程 |
+| [backend/README.md](backend/README.md) · [backend/README.md](backend/README.md) | Build & deploy backend, process layout, data dirs, `config.yaml`, HTTP / ROS summary |
+| [app/README.md](app/README.md) · [app/README.md](app/README.md) | Frontend deps & build, connectivity, features & settings, workflow |
 
 ---
 
-## 2. 项目预览
+## 2. Preview
 
-界面以**瓦片地图**为画布，叠加机器人位姿、激光/路径/代价等图层；顶部为速度/电池/导航与诊断状态，左右为图层与工具，可拖动的**相机浮窗**便于边看图边操作。
-
-<p align="center">
-  <img src="doc/image/main_page.jpg" alt="主界面：地图与图层" width="78%" />
-</p>
-<p align="center"><sub>主界面 · 瓦片地图 · 图层开关 · 遥控 / 导航入口</sub></p>
+The UI centers on a **tiled map** with robot pose, laser/path/cost overlays, and optional layers; the **camera** floats so you can watch the stream while operating. Toolbar chips show speed, battery, navigation, and diagnostics.
 
 <p align="center">
-  <img src="doc/image/map_edit_page.jpg" alt="地图编辑" width="78%" />
+  <img src="doc/image/main_page.jpg" alt="Main UI: map and layers" width="78%" />
 </p>
-<p align="center">
-  <img src="doc/image/map_manager_page.jpg" alt="地图管理" width="78%" />
-</p>
-<p align="center"><sub>地图编辑管理· 障碍与拓扑 </sub></p>
+
+<p align="center"><sub>Main view · tiled map · layer toggles · teleop / nav entry points</sub></p>
 
 <p align="center">
-  <img src="doc/image/ssh_page.jpg" alt="ssh" width="78%" />
+  <img src="doc/image/map_edit_page.jpg" alt="Map editing" width="78%" />
 </p>
-<p align="center">
-  <img src="doc/image/ssh_quick_cmd_page.jpg" alt="ssh qucik cmd" width="78%" />
-</p>
-<p align="center"><sub>SSH 功能</sub></p>
 
-<p align="center">
-  <img src="doc/image/diago_page.jpg" alt="diago page" width="78%" />
-</p>
-<p align="center"><sub>健康诊断</sub></p>
+<p align="center"><sub>Map edit · obstacles & topology · synced via backend REST</sub></p>
 
 ---
 
-## 3. 功能一览
+## 3. Features
 
-| 功能 | 说明 |
+| Area | What you get |
 | --- | --- |
-| 连接与配置 | 连接页配置 IP 与后端端口；设置页：语言、朝向、手柄映射、图像相关、速度上限等仍存本地；ROS 话题/帧名走后端 |
-| 地图显示 | 瓦片底图；叠加激光、点云、全局/局部路径、轨迹、代价地图、footprint、拓扑等（数据来自 WS） |
-| 位姿 | 后端在地图坐标系下封装位姿并推送 |
-| 重定位与导航 | 通过后端 HTTP 发布初始位姿与导航目标；拓扑与地图编辑走 HTTP |
-| 遥控 | 屏幕摇杆与手柄映射；速度通过机器人 WebSocket 二进制消息下发（`ClientRobotMessage.cmd_vel_joy`） |
-| 相机 | 图像话题订阅由后端转发到 WS；失败时见占位或无画面 |
-| 地图编辑 | 障碍与拓扑编辑通过 REST 与后端交互 |
-| 诊断 | 后端推送 `DiagnosticArray`；主界面可对 ERROR/WARN Toast |
-| 电池 | 后端推送 'BatteryState' 话题的电池状态 |
-| 国际化 | 中/英；横竖屏等应用侧设置 |
-| SSH | 见下文 **§3.1** |
-
-### 3.1 SSH 远程（快捷指令 / 终端）功能说明
-
-SSH 功能用于局域网远程执行命令和打开交互终端，和地图功能共用同一个后端地址。
-
-1. 在连接页连接机器人后，可在主界面使用「SSH 快捷指令」和「SSH 终端」。
-2. 前端通过 `/ws/ssh` 与后端通信，再由后端连接机器人 SSH 服务（`SshHost:SshPort`）。
-3. 需要在设置 -> SSH 中配置主机、端口、用户名、密码；配置会保存到机器人侧 `gui_app_settings.json`（通过 `/api/settings`）。
-4. 公网场景建议使用 HTTPS + WSS，避免明文传输风险。
-
-### 3.2 地图显示与管理功能说明
-
-1. 软件动态地图为 `map`，存储路径在后端的 `~/.maps/map`。
-2. 后端启动时会订阅 `/map` 话题，将收到的数据存储至 `~/.maps/map`。在地图管理界面切换地图时，软件会同时将切换到的地图发布到 `/map` 话题。
-3. 下次启动后端时，也会自动发布当前使用地图到 `/map`。理论上，软件后端可替代 ROS 的 map server。
-4. 切换地图后，软件默认显示切换后的地图；
-5. 在建图时，如果需要显示原始 `/map` 话题内容，请切换至 `map` 地图/由于瓦片地图为了提高绘制效率不会自动更新，软件为了解决这个问题，在开启遥控手柄时会5s强制刷新一次瓦片地图，以实现动态效果。
+| **Map** | High-performance raster tiles; global/local path, trajectory, costmaps, footprint, topology (streamed over WebSocket) |
+| **Sensing** | Laser & point cloud overlays; optional **MJPEG camera** window (topics via backend) |
+| **Navigation** | Nav status & goals; relocation; cancel nav; works with Nav2 / backend APIs |
+| **Editing** | Map & topology editing, list/switch maps (HTTP REST) |
+| **Diagnostics** | Diagnostic messages with ERROR/WARN toasts on the main UI |
+| **Ops** | **SSH terminal** & **quick commands** (tunnel via backend `/ws/ssh`—see [app/README.md](app/README.md) §4.1) |
 
 ---
 
-## 4. 编译与部署
+## 4. Build & deploy
 
-### 4.1 从源码构建（推荐：仓库根目录一键）
+### 4.1 From source (recommended: one command at repo root)
 
 ```bash
 git clone https://github.com/chengyangkj/ROS_Flutter_Gui_App.git
@@ -113,19 +75,9 @@ cd ROS_Flutter_Gui_App
 ./build.sh
 ```
 
-根目录 `build.sh` 会依次：生成 Dart `protobuf` → 构建 backend → `flutter build web`，并将 Web 产物同步到 `backend/build/install/bin/dist`（供后端静态托管）。
+`build.sh` at the repo root: generates Dart `protobuf` → builds **backend** → `flutter build web`, then copies the Web artifact into `backend/build/install/bin/dist` (for static hosting by the backend). For backend-only, use CMake under `backend/` per that README. For frontend-only, run protocol generation first—see [app/README.md](app/README.md).
 
-运行前请先安装并配置好 Flutter（`flutter` 命令需在 PATH 中）。仅构建后端时可进入 `backend/` 按该目录 README 使用 CMake；仅构建前端时需先完成协议生成，见 [app/README.md](app/README.md)。
-
-
-### 4.2 仅构建后端
-
-```
-cd backend
-sh ./build.sh
-```
-
-### 4.3 仅构建前端
+### 4.2 Frontend-only (example)
 
 ```bash
 cd app
@@ -133,18 +85,18 @@ flutter pub get
 flutter build web --release
 ```
 
-其他目标（APK、Linux、Windows 等）参见 [app/README.md](app/README.md)。建议 Flutter / Dart 版本与工程 `pubspec.yaml` 中 `environment.sdk` 一致。
+Other targets (APK, Linux, Windows, etc.) are described in [app/README.md](app/README.md). Match Flutter / Dart to `environment.sdk` in `pubspec.yaml`.
 
 ---
 
-## 5. 预构建产物（GitHub Releases）
+## 5. Prebuilt binaries (GitHub Releases)
 
-如果不想手动配置环境编译运行，可在 **Releases** 页面可下载与当前 tag 对应的后端压缩包与多平台客户端，例如（名称随版本变化，以 Release 列表为准）：
+**Releases** ship backend archives and multi-platform clients for each tag (exact names vary—check the release list):
 
-| 类型 | 典型文件名 |
+| Type | Typical filename |
 | --- | --- |
-| 后端（含 Web `dist`，x86_64） | `backend-<tag>-x86_64.zip` |
-| 后端（arm64） | `backend-<tag>-arm64.zip` |
+| Backend (includes Web `dist`, x86_64) | `backend-<tag>-x86_64.zip` |
+| Backend (arm64) | `backend-<tag>-arm64.zip` |
 | Web | `app-<tag>-web.tar.gz` |
 | Linux | `app-<tag>-linux-x64.tar.gz` |
 | Android | `app-<tag>-android.apk` |
@@ -152,38 +104,39 @@ flutter build web --release
 
 ---
 
-## 6. 使用说明
+## 6. Usage
 
-### 6.1 启动后端
+### 6.1 Start the backend
 
 ```bash
 cd backend/build/install/bin
-sh ./start.sh
+./start.sh
 ```
 
-（若从 Release 解压部署，请将路径换为解压后的 `bin` 目录。）
+(If you deployed from a Release tarball, point to that package’s `bin` directory.)
 
-### 6.2 打开前端
+### 6.2 Open the frontend
 
-先启动 6.1 中的后端。默认 HTTP 端口为 **8080**，浏览器访问例如：
+Start the backend from §6.1 first. Default HTTP port is **8080**—for example:
 
 `http://127.0.0.1:8080`
 
-亦可从 Release 下载对应平台的客户端，配置同一后端地址进行连接。
+You can also install a client from Releases and point it at the same backend address.
 
 ---
 
-## 7. 仓库结构
+## 7. Repository layout
 
-| 路径 | 说明 |
+| Path | Description |
 | --- | --- |
-| `protocol/` | `.proto` 定义；根目录 `build.sh` 生成 Dart 与后端共用的协议代码 |
-| `backend/` | C++ 后端，CMake 工程 |
-| `app/` | Flutter 应用 |
-| `build.sh` | 根目录一键构建（protobuf → backend → `flutter build web` + 拷贝 `dist`） |
+| `protocol/` | `.proto` definitions; root `build.sh` generates shared Dart + backend stubs |
+| `backend/` | C++ backend, CMake project |
+| `app/` | Flutter application |
+| `build.sh` | One-shot build: protobuf → backend → `flutter build web` + copy `dist` |
 
+---
 
-## 8. 📊 Star 历史
+## 8. Star history
 
 <div align="center">
   <picture>

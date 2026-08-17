@@ -13,13 +13,13 @@ FetchContent_Declare(
 
 FetchContent_GetProperties(yaml-cpp)
 if(NOT yaml-cpp_POPULATED)
-    # 禁用不需要的组件以加快构建速度
+    # Disable unnecessary components to speed up the build
     set(YAML_CPP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
     set(YAML_CPP_BUILD_TOOLS OFF CACHE BOOL "" FORCE)
     set(YAML_CPP_BUILD_CONTRIB OFF CACHE BOOL "" FORCE)
     set(YAML_CPP_FORMAT_SOURCE OFF CACHE BOOL "" FORCE)
     
-    # 启用安装
+    # Enable installation
     set(YAML_CPP_INSTALL ON CACHE BOOL "" FORCE)
     
     FetchContent_MakeAvailable(yaml-cpp)

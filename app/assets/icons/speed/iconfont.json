@@ -1,20 +1,20 @@
 {
   "id": "",
-  "name": "",
+  "name": "icon",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
     {
       "icon_id": "7587736",
-      "name": "上",
+      "name": "icon",
       "font_class": "shang",
       "unicode": "e606",
       "unicode_decimal": 58886
     },
     {
       "icon_id": "10097949",
-      "name": "旋转",
+      "name": "icon",
       "font_class": "xuanzhuan",
       "unicode": "e680",
       "unicode_decimal": 59008

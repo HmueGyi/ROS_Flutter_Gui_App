@@ -15,9 +15,9 @@ class DiagnosticPage extends StatefulWidget {
 class _DiagnosticPageState extends State<DiagnosticPage> {
   late WsChannel wsChannel;
   String _searchQuery = '';
-  int _filterLevel = -1; // -1: 全部, 0: OK, 1: WARN, 2: ERROR, 3: STALE
-  Map<String, bool> _expandedHardware = {}; // 硬件ID展开状态
-  Map<String, Map<String, bool>> _expandedComponents = {}; // 组件展开状态
+  int _filterLevel = -1; // -1: all, 0: OK, 1: WARN, 2: ERROR, 3: STALE
+  Map<String, bool> _expandedHardware = {}; // Hardware ID expanded state
+  Map<String, Map<String, bool>> _expandedComponents = {}; // Component expanded state
   late TextEditingController _searchController;
 
   @override
@@ -103,7 +103,7 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
                 
                 return Column(
                   children: [
-                        // 筛选结果统计
+                        // Filter result statistics
                         if (_searchQuery.isNotEmpty || _filterLevel != -1)
                           Container(
                             width: double.infinity,
@@ -133,7 +133,7 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
                               ],
                             ),
                           ),
-                        // 诊断数据列表
+                        // Diagnostic data list
                     Expanded(
                           child: ListView.builder(
                             itemCount: filteredData.length,
@@ -160,7 +160,7 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
       padding: const EdgeInsets.all(16),
       child: Row(
         children: [
-          // 搜索框
+          // Search box
           Expanded(
             flex: 2,
             child: TextField(
@@ -195,7 +195,7 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
             ),
           ),
           const SizedBox(width: 12),
-          // 状态筛选
+          // Status filter
           Expanded(
             flex: 3,
             child: Row(
@@ -278,28 +278,28 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
     );
   }
 
-  // 获取筛选后的数据
+  // Get filtered data
   List<MapEntry<String, Map<String, DiagnosticState>>> _getFilteredData(DiagnosticManager diagnosticManager) {
     List<MapEntry<String, Map<String, DiagnosticState>>> allData = [];
     
-    // 获取所有硬件数据
+    // Get all hardware data
     for (var hardwareId in diagnosticManager.hardwareIds) {
       final states = diagnosticManager.getStatesForHardware(hardwareId);
       allData.add(MapEntry(hardwareId, states));
     }
     
-    // 应用搜索筛选
+    // Apply search filter
       if (_searchQuery.isNotEmpty) {
       allData = allData.where((entry) {
         final hardwareId = entry.key.toLowerCase();
         final states = entry.value;
         
-        // 检查硬件ID是否匹配
+        // Check if hardware ID matches
         if (hardwareId.contains(_searchQuery)) {
           return true;
         }
         
-        // 检查组件是否匹配
+        // Check if component matches
         for (var componentEntry in states.entries) {
           final componentName = componentEntry.key.toLowerCase();
           final state = componentEntry.value;
@@ -315,12 +315,12 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
       }).toList();
     }
     
-    // 应用状态筛选
+    // Apply status filter
     if (_filterLevel != -1) {
       allData = allData.where((entry) {
         final states = entry.value;
         
-        // 检查是否有匹配状态的组件
+        // Check if there are components matching the status
         return states.values.any((state) => state.level == _filterLevel);
       }).toList();
     }
@@ -328,11 +328,11 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
     return allData;
   }
 
-  // 构建硬件组
+  // Build hardware group
   Widget _buildHardwareGroup(String hardwareId, Map<String, DiagnosticState> states) {
     final isExpanded = _expandedHardware[hardwareId] ?? false;
     
-    // 如果有筛选条件，只显示匹配的组件
+    // If filter is active, only show matching components
     Map<String, DiagnosticState> filteredStates = states;
     if (_searchQuery.isNotEmpty || _filterLevel != -1) {
       filteredStates = Map.fromEntries(
@@ -340,7 +340,7 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
           final componentName = entry.key;
           final state = entry.value;
           
-      // 搜索筛选
+      // Search filter
       if (_searchQuery.isNotEmpty) {
             final hardwareIdLower = hardwareId.toLowerCase();
             final componentNameLower = componentName.toLowerCase();
@@ -353,7 +353,7 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
         }
       }
 
-      // 状态筛选
+      // Status filter
           if (_filterLevel != -1 && state.level != _filterLevel) {
         return false;
       }
@@ -363,12 +363,12 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
       );
     }
     
-    // 如果没有匹配的组件，不显示该硬件组
+    // If no matching components, hide this hardware group
     if (filteredStates.isEmpty) {
       return const SizedBox.shrink();
     }
     
-    // 计算该硬件组的最高状态级别
+    // Calculate the highest status level for this hardware group
     int maxLevel = DiagnosticStatus.OK;
     for (var state in filteredStates.values) {
       if (state.level > maxLevel) {
@@ -551,7 +551,7 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
     );
   }
 
-  // 构建键值对表格
+  // Build key-value pair table
   Widget _buildKeyValueTable(Map<String, String> keyValues, DateTime lastUpdateTime) {
     return Container(
       margin: const EdgeInsets.all(16),
@@ -636,7 +636,7 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
                 ),
                 const Expanded(
                   flex: 2,
-                  child: SizedBox(), // 占位符，保持对齐
+                  child: SizedBox(), // Placeholder to maintain alignment
                 ),
               ],
             ),
@@ -646,7 +646,7 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
     );
   }
 
-  // 构建摘要栏
+  // Build summary bar
   Widget _buildSummaryBar() {
     return Consumer<WsChannel>(
       builder: (context, wsChannel, child) {
@@ -719,7 +719,7 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
     );
   }
 
-  // 获取硬件组中所有组件的最新更新时间
+  // Get the latest update time across all components in a hardware group
   DateTime _getLatestUpdateTime(Map<String, DiagnosticState> states) {
     if (states.isEmpty) return DateTime.now();
     
@@ -732,7 +732,7 @@ class _DiagnosticPageState extends State<DiagnosticPage> {
     return latestTime;
   }
 
-  // 格式化时间显示
+  // Format time for display
   String _formatDateTime(DateTime dateTime) {
     final milliseconds = dateTime.millisecond.toString().padLeft(3, '0');
     return '${dateTime.year}-${dateTime.month}-${dateTime.day} ${dateTime.hour.toString().padLeft(2, '0')}:${dateTime.minute.toString().padLeft(2, '0')}:${dateTime.second.toString().padLeft(2, '0')}.$milliseconds';

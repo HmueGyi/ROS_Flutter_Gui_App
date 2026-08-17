@@ -68,6 +68,6 @@ class SshQuickCmd {
 }
 
 List<SshQuickCmd> defaultSSHQuickCommands() => const [
-      SshQuickCmd(name: '关机', cmd: 'shutdown -h now', useSudo: true),
-      SshQuickCmd(name: '重启', cmd: 'reboot', useSudo: true),
+      SshQuickCmd(name: 'Shutdown', cmd: 'shutdown -h now', useSudo: true),
+      SshQuickCmd(name: 'Reboot', cmd: 'reboot', useSudo: true),
     ];

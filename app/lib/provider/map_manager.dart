@@ -117,7 +117,7 @@ class MapManager extends ChangeNotifier {
     topologyMap.value = rosTopologyMap;
     topologyMap.notifyListeners();
     notifyListeners();
-    print('MapManager: 收到ROS拓扑地图，${rosTopologyMap.points.length}个点，${rosTopologyMap.routes.length}条路径');
+    print('MapManager: Received ROS topology map, ${rosTopologyMap.points.length} points, ${rosTopologyMap.routes.length} routes');
   }
 
   void updateOccupancyMapFromRos(OccupancyMap rosOccupancyMap) {
@@ -154,7 +154,7 @@ class MapManager extends ChangeNotifier {
     };
     
     await prefs.setString(_occupancyMapKey, jsonEncode(json));
-    print('MapManager: 栅格地图已保存到本地');
+    print('MapManager: Occupancy map saved locally');
   }
 
   Future<void> loadLocalOccupancyMap() async {
@@ -176,9 +176,9 @@ class MapManager extends ChangeNotifier {
         
         occupancyMap.value = map;
         occupancyMap.notifyListeners();
-        print('MapManager: 从本地加载栅格地图');
+        print('MapManager: Loading occupancy map from local storage');
       } catch (e) {
-        print('MapManager: 加载本地栅格地图失败: $e');
+        print('MapManager: Failed to load local occupancy map: $e');
       }
     }
   }
@@ -217,7 +217,7 @@ class MapManager extends ChangeNotifier {
       topologyMap.notifyListeners();
       notifyListeners();
     } catch (e) {
-      print('MapManager: 导入拓扑地图失败: $e');
+      print('MapManager: Failed to import topology map: $e');
       throw Exception('invalid_json');
     }
   }

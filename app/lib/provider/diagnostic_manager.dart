@@ -48,15 +48,15 @@ class DiagnosticState {
   String get levelDisplayName {
     switch (level) {
       case DiagnosticStatus.OK:
-        return '正常';
+        return 'Normal';
       case DiagnosticStatus.WARN:
-        return '警告';
+        return 'Warning';
       case DiagnosticStatus.ERROR:
-        return '错误';
+        return 'Error';
       case DiagnosticStatus.STALE:
-        return '失活';
+        return 'Stale';
       default:
-        return '未知';
+        return 'Unknown';
     }
   }
 
@@ -95,32 +95,32 @@ class DiagnosticManager extends ChangeNotifier {
   // Map<hardware_id, Map<component_name, DiagnosticState>>
   final Map<String, Map<String, DiagnosticState>> _diagnosticStates = {};
   
-  // 过期检测定时器
+  // Stale detection timer
   Timer? _staleCheckTimer;
   
-  // 过期时间阈值（5秒）
+  // Stale time threshold (5 seconds)
   static const Duration _staleThreshold = Duration(seconds: 5);
-  // 数据移除阈值（1分钟未更新则移除）
+  // Data removal threshold (remove if not updated for 1 minute)
   static const Duration _removeThreshold = Duration(minutes: 1);
-  // 针对历史类诊断，限制每个硬件最多保留的组件数量
+  // For history-type diagnostics, limit max components kept per hardware
   static const int _maxHistoryPerHardware = 50;
   
-  // 新错误/警告回调函数
+  // Callback for new errors/warnings
   Function(List<Map<String, dynamic>>)? _onNewErrorsWarnings;
   
-  // 构造函数
+  // Constructor
   DiagnosticManager() {
     _startStaleCheckTimer();
   }
 
-  // 析构函数
+  // Destructor
   @override
   void dispose() {
     _stopStaleCheckTimer();
     super.dispose();
   }
 
-  // 启动过期检测定时器
+  // Start the stale detection timer
   void _startStaleCheckTimer() {
     _staleCheckTimer?.cancel();
     _staleCheckTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -128,13 +128,13 @@ class DiagnosticManager extends ChangeNotifier {
     });
   }
 
-  // 停止过期检测定时器
+  // Stop the stale detection timer
   void _stopStaleCheckTimer() {
     _staleCheckTimer?.cancel();
     _staleCheckTimer = null;
   }
 
-  // 检查过期状态
+  // Check for stale states
   void _checkForStaleStates() {
     bool hasChanges = false;
     final now = DateTime.now();
@@ -149,19 +149,19 @@ class DiagnosticManager extends ChangeNotifier {
         final state = componentEntry.value;
         final timeSinceUpdate = now.difference(state.lastUpdateTime);
 
-        // 长时间未更新的状态直接移除，避免数据无限增长
+        // Remove states not updated for a long time to prevent unbounded data growth
         if (timeSinceUpdate > _removeThreshold) {
           componentsToRemove.add(componentEntry.key);
           hasChanges = true;
           continue;
         }
 
-        // 如果超过5秒未更新且当前不是过期状态，则设置为过期
+        // If not updated for more than 5 seconds and not already stale, mark as stale
         if (timeSinceUpdate > _staleThreshold &&
             state.level != DiagnosticStatus.STALE) {
           final newStaleState = state.copyWith(
             level: DiagnosticStatus.STALE,
-            message: '(已过期)',
+            message: '(stale)',
             lastUpdateTime: state.lastUpdateTime,
           );
 
@@ -191,7 +191,7 @@ class DiagnosticManager extends ChangeNotifier {
     if (hasChanges) {
       notifyListeners();
 
-      // 如果有新变为失活的状态，触发回调
+      // If there are newly stale states, trigger the callback
       if (stateHardwareId.isNotEmpty) {
         for (var hardwareId in stateHardwareId) {
           newStaleStates.add({
@@ -208,30 +208,30 @@ class DiagnosticManager extends ChangeNotifier {
     }
   }
 
-  // 设置新错误/警告回调函数
+  // Set callback for new errors/warnings
   void setOnNewErrorsWarnings(Function(List<Map<String, dynamic>>) callback) {
     _onNewErrorsWarnings = callback;
   }
 
-  // 获取所有硬件ID
+  // Get all hardware IDs
   List<String> get hardwareIds => _diagnosticStates.keys.toList();
   
-  // 获取指定硬件的所有组件
+  // Get all components for the specified hardware
   List<String> getComponentsForHardware(String hardwareId) {
     return _diagnosticStates[hardwareId]?.keys.toList() ?? [];
   }
   
-  // 获取指定硬件和组件的状态
+  // Get the state for the specified hardware and component
   DiagnosticState? getState(String hardwareId, String componentName) {
     return _diagnosticStates[hardwareId]?[componentName];
   }
   
-  // 获取指定硬件的所有状态
+  // Get all states for the specified hardware
   Map<String, DiagnosticState> getStatesForHardware(String hardwareId) {
     return Map.from(_diagnosticStates[hardwareId] ?? {});
   }
   
-  // 获取指定硬件的最高状态级别
+  // Get the highest status level for the specified hardware
   int getMaxLevelForHardware(String hardwareId) {
     final states = _diagnosticStates[hardwareId];
     if (states == null || states.isEmpty) return DiagnosticStatus.OK;
@@ -245,7 +245,7 @@ class DiagnosticManager extends ChangeNotifier {
     return maxLevel;
   }
   
-  // 获取所有状态的统计信息
+  // Get statistics counts for all states
   Map<int, int> getStatusCounts() {
     Map<int, int> counts = {
       DiagnosticStatus.OK: 0,
@@ -263,39 +263,39 @@ class DiagnosticManager extends ChangeNotifier {
     return counts;
   }
   
-  // 更新诊断状态
+  // Update diagnostic states
   void updateDiagnosticStates(DiagnosticArray diagnosticArray) {
-    List<Map<String, dynamic>> newErrorsWarnings = []; // 存储新出现的错误和警告
+    List<Map<String, dynamic>> newErrorsWarnings = []; // Store newly appeared errors and warnings
     
     for (var status in diagnosticArray.status) {
 
-      //进程启动时会发布这个诊断信息
+            // This diagnostic is published when the process starts up
       if(status.message== "Node starting up"){
         status.hardwareId="Node Start History";
       }
       final hardwareId = status.hardwareId.isEmpty ? 'unknown_hardware' : status.hardwareId;
       final componentName = status.name;
       
-      // 检查是否为新的错误或警告
+      // Check if this is a new error or warning
       final existingState = _diagnosticStates[hardwareId]?[componentName];
       bool isNewErrorOrWarning = false;
       
       if (status.level == DiagnosticStatus.ERROR || status.level == DiagnosticStatus.WARN) {
-        // 如果没有之前的状态，或者之前的状态不是错误/警告，则认为是新出现的
+        // If there is no prior state, or the prior state is not error/warning, treat as new
         if (existingState == null || 
             (existingState.level != DiagnosticStatus.ERROR && existingState.level != DiagnosticStatus.WARN)) {
           isNewErrorOrWarning = true;
         }
       }
       
-      // 创建新的状态，使用当前时间作为更新时间
+      // Create a new state with the current time as the update time
       final newState = DiagnosticState.fromDiagnosticStatus(status);
       
       _diagnosticStates[hardwareId] ??= {};
-      // 更新状态
+      // Update the state
       _diagnosticStates[hardwareId]![componentName] = newState;
 
-      // 对历史类诊断限制数量，防止无限增长
+      // Limit count for history-type diagnostics to prevent unbounded growth
       if (hardwareId == 'Node Start History') {
         final hardwareMap = _diagnosticStates[hardwareId]!;
         if (hardwareMap.length > _maxHistoryPerHardware) {
@@ -308,7 +308,7 @@ class DiagnosticManager extends ChangeNotifier {
         }
       }
       
-      // 如果是新出现的错误或警告，添加到列表中
+      // If this is a new error or warning, add it to the list
       if (isNewErrorOrWarning) {
         newErrorsWarnings.add({
           'hardwareId': hardwareId,
@@ -318,28 +318,28 @@ class DiagnosticManager extends ChangeNotifier {
       }
     }
 
-    // 通知监听者，并传递新出现的错误和警告信息
+    // Notify listeners and pass the new errors and warnings
     notifyListeners();
     
-    // // 如果有新出现的错误或警告，触发回调
+    // // If there are new errors or warnings, trigger the callback
     // if (newErrorsWarnings.isNotEmpty) {
     //   _onNewErrorsWarnings?.call(newErrorsWarnings);
     // }
   }
   
-  // 清除所有诊断状态
+  // Clear all diagnostic states
   void clearAllStates() {
     _diagnosticStates.clear();
     notifyListeners();
   }
   
-  // 清除指定硬件的状态
+  // Clear states for the specified hardware
   void clearHardwareStates(String hardwareId) {
     _diagnosticStates.remove(hardwareId);
     notifyListeners();
   }
   
-  // 清除指定组件的状态
+  // Clear the state for the specified component
   void clearComponentState(String hardwareId, String componentName) {
     _diagnosticStates[hardwareId]?.remove(componentName);
     if (_diagnosticStates[hardwareId]?.isEmpty == true) {
@@ -349,7 +349,7 @@ class DiagnosticManager extends ChangeNotifier {
   }
   
   
-  // 获取所有诊断状态的扁平列表（用于搜索和筛选）
+  // Get a flat list of all diagnostic states (for search and filtering)
   List<MapEntry<String, MapEntry<String, DiagnosticState>>> getAllStates() {
     List<MapEntry<String, MapEntry<String, DiagnosticState>>> result = [];
     
@@ -362,7 +362,7 @@ class DiagnosticManager extends ChangeNotifier {
     return result;
   }
   
-  // 搜索诊断状态
+  // Search diagnostic states
   List<MapEntry<String, MapEntry<String, DiagnosticState>>> searchStates(String query) {
     if (query.isEmpty) return getAllStates();
     
@@ -379,7 +379,7 @@ class DiagnosticManager extends ChangeNotifier {
     }).toList();
   }
   
-  // 按状态级别筛选
+  // Filter by status level
   List<MapEntry<String, MapEntry<String, DiagnosticState>>> filterByLevel(int level) {
     return getAllStates().where((entry) {
       return entry.value.value.level == level;

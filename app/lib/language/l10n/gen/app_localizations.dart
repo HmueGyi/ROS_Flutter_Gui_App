@@ -6,7 +6,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
-import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
 
@@ -93,1431 +92,1428 @@ abstract class AppLocalizations {
       ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('zh'),
-  ];
+  static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
   /// No description provided for @auto.
   ///
-  /// In zh, this message translates to:
-  /// **'自动'**
+  /// In en, this message translates to:
+  /// **'Auto'**
   String get auto;
 
   /// No description provided for @light.
   ///
-  /// In zh, this message translates to:
-  /// **'浅色'**
+  /// In en, this message translates to:
+  /// **'Light'**
   String get light;
 
   /// No description provided for @dark.
   ///
-  /// In zh, this message translates to:
-  /// **'暗色'**
+  /// In en, this message translates to:
+  /// **'Dark'**
   String get dark;
 
   /// No description provided for @connect_robot.
   ///
-  /// In zh, this message translates to:
-  /// **'连接机器人'**
+  /// In en, this message translates to:
+  /// **'Connect To Robot'**
   String get connect_robot;
 
   /// No description provided for @connect_robot_subtitle.
   ///
-  /// In zh, this message translates to:
-  /// **'请输入机器人IP与端口'**
+  /// In en, this message translates to:
+  /// **'Please Input Robot Ip And Port'**
   String get connect_robot_subtitle;
 
   /// No description provided for @ip_address.
   ///
-  /// In zh, this message translates to:
-  /// **'IP地址'**
+  /// In en, this message translates to:
+  /// **'IP Address'**
   String get ip_address;
 
   /// No description provided for @port.
   ///
-  /// In zh, this message translates to:
-  /// **'端口'**
+  /// In en, this message translates to:
+  /// **'Port'**
   String get port;
 
   /// No description provided for @http_server_port.
   ///
-  /// In zh, this message translates to:
-  /// **'HTTP 服务端口'**
+  /// In en, this message translates to:
+  /// **'HTTP Server Port'**
   String get http_server_port;
 
   /// No description provided for @robot_type.
   ///
-  /// In zh, this message translates to:
-  /// **'机器人类型'**
+  /// In en, this message translates to:
+  /// **'Robot Type'**
   String get robot_type;
 
   /// No description provided for @default_config_template.
   ///
-  /// In zh, this message translates to:
-  /// **'默认配置模版'**
+  /// In en, this message translates to:
+  /// **'Default Config Template'**
   String get default_config_template;
 
   /// No description provided for @max_speed.
   ///
-  /// In zh, this message translates to:
-  /// **'最大前进速度'**
+  /// In en, this message translates to:
+  /// **'Max Speed'**
   String get max_speed;
 
   /// No description provided for @max_y_speed.
   ///
-  /// In zh, this message translates to:
-  /// **'最大横向速度'**
+  /// In en, this message translates to:
+  /// **'Max Y Speed'**
   String get max_y_speed;
 
   /// No description provided for @max_angular_speed.
   ///
-  /// In zh, this message translates to:
-  /// **'最大角速度'**
+  /// In en, this message translates to:
+  /// **'Max Angular Speed'**
   String get max_angular_speed;
 
   /// No description provided for @map_frame.
   ///
-  /// In zh, this message translates to:
-  /// **'地图坐标系'**
+  /// In en, this message translates to:
+  /// **'Map Frame'**
   String get map_frame;
 
   /// No description provided for @odom_frame.
   ///
-  /// In zh, this message translates to:
-  /// **'里程计坐标系'**
+  /// In en, this message translates to:
+  /// **'Odom Frame'**
   String get odom_frame;
 
   /// No description provided for @base_frame.
   ///
-  /// In zh, this message translates to:
-  /// **'机器人坐标系'**
+  /// In en, this message translates to:
+  /// **'Base Frame'**
   String get base_frame;
 
   /// No description provided for @laser_frame.
   ///
-  /// In zh, this message translates to:
-  /// **'激光雷达坐标系'**
+  /// In en, this message translates to:
+  /// **'Laser Frame'**
   String get laser_frame;
 
   /// No description provided for @map_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'地图话题'**
+  /// In en, this message translates to:
+  /// **'Map Topic'**
   String get map_topic;
 
   /// No description provided for @laser_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'激光雷达话题'**
+  /// In en, this message translates to:
+  /// **'Laser Topic'**
   String get laser_topic;
 
   /// No description provided for @global_path_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'全局路径话题'**
+  /// In en, this message translates to:
+  /// **'Global Path Topic'**
   String get global_path_topic;
 
   /// No description provided for @local_path_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'局部路径话题'**
+  /// In en, this message translates to:
+  /// **'Local Path Topic'**
   String get local_path_topic;
 
   /// No description provided for @trace_path_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'轨迹路径话题'**
+  /// In en, this message translates to:
+  /// **'Trace Path Topic'**
   String get trace_path_topic;
 
   /// No description provided for @reloc_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'重定位话题'**
+  /// In en, this message translates to:
+  /// **'Reloc Topic'**
   String get reloc_topic;
 
   /// No description provided for @nav_goal_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'导航目标话题'**
+  /// In en, this message translates to:
+  /// **'Nav Goal Topic'**
   String get nav_goal_topic;
 
   /// No description provided for @odometry_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'里程计话题'**
+  /// In en, this message translates to:
+  /// **'Odometry Topic'**
   String get odometry_topic;
 
   /// No description provided for @speed_ctrl_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'速度控制话题'**
+  /// In en, this message translates to:
+  /// **'Speed Ctrl Topic'**
   String get speed_ctrl_topic;
 
   /// No description provided for @battery_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'电池状态话题'**
+  /// In en, this message translates to:
+  /// **'Battery Topic'**
   String get battery_topic;
 
   /// No description provided for @save.
   ///
-  /// In zh, this message translates to:
-  /// **'保存'**
+  /// In en, this message translates to:
+  /// **'Save'**
   String get save;
 
   /// No description provided for @cancel.
   ///
-  /// In zh, this message translates to:
-  /// **'取消'**
+  /// In en, this message translates to:
+  /// **'Cancel'**
   String get cancel;
 
   /// No description provided for @image_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'图像话题'**
+  /// In en, this message translates to:
+  /// **'Image Topic'**
   String get image_topic;
 
   /// No description provided for @screen_orientation.
   ///
-  /// In zh, this message translates to:
-  /// **'屏幕方向'**
+  /// In en, this message translates to:
+  /// **'Screen Orientation'**
   String get screen_orientation;
 
   /// No description provided for @connect_error.
   ///
-  /// In zh, this message translates to:
-  /// **'连接ROS失败，请检查IP和端口是否正确'**
+  /// In en, this message translates to:
+  /// **'Connect ROS failed, please check IP and port'**
   String get connect_error;
 
   /// No description provided for @edit.
   ///
-  /// In zh, this message translates to:
-  /// **'编辑'**
+  /// In en, this message translates to:
+  /// **'Edit'**
   String get edit;
 
   /// No description provided for @config_saved.
   ///
-  /// In zh, this message translates to:
-  /// **'设置已保存，重启应用后生效'**
+  /// In en, this message translates to:
+  /// **'Config saved, restart app to take effect'**
   String get config_saved;
 
   /// No description provided for @ok.
   ///
-  /// In zh, this message translates to:
-  /// **'确定'**
+  /// In en, this message translates to:
+  /// **'OK'**
   String get ok;
 
   /// No description provided for @image_port.
   ///
-  /// In zh, this message translates to:
-  /// **'图像端口'**
+  /// In en, this message translates to:
+  /// **'Image Port'**
   String get image_port;
 
   /// No description provided for @image_width.
   ///
-  /// In zh, this message translates to:
-  /// **'图像宽度'**
+  /// In en, this message translates to:
+  /// **'Image Width'**
   String get image_width;
 
   /// No description provided for @image_height.
   ///
-  /// In zh, this message translates to:
-  /// **'图像高度'**
+  /// In en, this message translates to:
+  /// **'Image Height'**
   String get image_height;
 
   /// No description provided for @confirm_change.
   ///
-  /// In zh, this message translates to:
-  /// **'确认切换'**
+  /// In en, this message translates to:
+  /// **'Confirm Change'**
   String get confirm_change;
 
   /// No description provided for @switch_template_will_reset_all_settings.
   ///
-  /// In zh, this message translates to:
-  /// **'切换模板将重置所有设置'**
+  /// In en, this message translates to:
+  /// **'Switch template will reset all settings'**
   String get switch_template_will_reset_all_settings;
 
   /// No description provided for @portrait.
   ///
-  /// In zh, this message translates to:
-  /// **'竖屏'**
+  /// In en, this message translates to:
+  /// **'Portrait'**
   String get portrait;
 
   /// No description provided for @landscape.
   ///
-  /// In zh, this message translates to:
-  /// **'横屏'**
+  /// In en, this message translates to:
+  /// **'Landscape'**
   String get landscape;
 
   /// No description provided for @language.
   ///
-  /// In zh, this message translates to:
-  /// **'语言'**
+  /// In en, this message translates to:
+  /// **'Language'**
   String get language;
 
   /// No description provided for @switch_language.
   ///
-  /// In zh, this message translates to:
-  /// **'切换语言'**
+  /// In en, this message translates to:
+  /// **'Switch Language'**
   String get switch_language;
 
   /// No description provided for @zh.
   ///
-  /// In zh, this message translates to:
-  /// **'中文'**
+  /// In en, this message translates to:
+  /// **'Chinese'**
   String get zh;
 
   /// No description provided for @en.
   ///
-  /// In zh, this message translates to:
-  /// **'英文'**
+  /// In en, this message translates to:
+  /// **'English'**
   String get en;
 
   /// No description provided for @setting.
   ///
-  /// In zh, this message translates to:
-  /// **'设置'**
+  /// In en, this message translates to:
+  /// **'Setting'**
   String get setting;
 
   /// No description provided for @basic_setting.
   ///
-  /// In zh, this message translates to:
-  /// **'基础设置'**
+  /// In en, this message translates to:
+  /// **'Basic Setting'**
   String get basic_setting;
 
   /// No description provided for @topic_setting.
   ///
-  /// In zh, this message translates to:
-  /// **'话题设置'**
+  /// In en, this message translates to:
+  /// **'Topic Setting'**
   String get topic_setting;
 
   /// No description provided for @app_setting.
   ///
-  /// In zh, this message translates to:
-  /// **'APP设置'**
+  /// In en, this message translates to:
+  /// **'APP Setting'**
   String get app_setting;
 
   /// No description provided for @robot_footprint_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'机器人尺寸话题'**
+  /// In en, this message translates to:
+  /// **'Robot Footprint Topic'**
   String get robot_footprint_topic;
 
   /// No description provided for @local_cost_map_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'局部代价地图话题'**
+  /// In en, this message translates to:
+  /// **'Local Cost Map Topic'**
   String get local_cost_map_topic;
 
   /// No description provided for @pointcloud2_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'点云话题'**
+  /// In en, this message translates to:
+  /// **'Point Cloud Topic'**
   String get pointcloud2_topic;
 
   /// No description provided for @global_costmap_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'全局代价地图话题'**
+  /// In en, this message translates to:
+  /// **'Global Cost Map Topic'**
   String get global_costmap_topic;
 
   /// No description provided for @backend_setting.
   ///
-  /// In zh, this message translates to:
-  /// **'后端设置'**
+  /// In en, this message translates to:
+  /// **'Backend Setting'**
   String get backend_setting;
 
   /// No description provided for @map_publish_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'地图发布话题'**
+  /// In en, this message translates to:
+  /// **'Map Publish Topic'**
   String get map_publish_topic;
 
   /// No description provided for @map_subscribe_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'地图订阅话题'**
+  /// In en, this message translates to:
+  /// **'Map Subscribe Topic'**
   String get map_subscribe_topic;
 
   /// No description provided for @map_manager_frame.
   ///
-  /// In zh, this message translates to:
-  /// **'地图管理坐标系'**
+  /// In en, this message translates to:
+  /// **'Map Manager Frame'**
   String get map_manager_frame;
 
   /// No description provided for @nav_to_pose_status_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'单点导航状态话题'**
+  /// In en, this message translates to:
+  /// **'NavToPose Status Topic'**
   String get nav_to_pose_status_topic;
 
   /// No description provided for @nav_through_poses_status_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'多点导航状态话题'**
+  /// In en, this message translates to:
+  /// **'NavThroughPoses Status Topic'**
   String get nav_through_poses_status_topic;
 
   /// No description provided for @topology_live_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'拓扑实时话题'**
+  /// In en, this message translates to:
+  /// **'Topology Live Topic'**
   String get topology_live_topic;
 
   /// No description provided for @topology_json_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'拓扑JSON话题'**
+  /// In en, this message translates to:
+  /// **'Topology JSON Topic'**
   String get topology_json_topic;
 
   /// No description provided for @topology_publish_topic.
   ///
-  /// In zh, this message translates to:
-  /// **'拓扑发布话题'**
+  /// In en, this message translates to:
+  /// **'Topology Publish Topic'**
   String get topology_publish_topic;
 
   /// No description provided for @diagnostic_topic_label.
   ///
-  /// In zh, this message translates to:
-  /// **'诊断话题'**
+  /// In en, this message translates to:
+  /// **'Diagnostic Topic'**
   String get diagnostic_topic_label;
 
   /// No description provided for @robot_size.
   ///
-  /// In zh, this message translates to:
-  /// **'机器人图标尺寸'**
+  /// In en, this message translates to:
+  /// **'Robot Icon Size'**
   String get robot_size;
 
   /// No description provided for @not_allow_send_nav_goal.
   ///
-  /// In zh, this message translates to:
-  /// **'当前模式不允许下发导航模式，请切换至普通模式!'**
+  /// In en, this message translates to:
+  /// **'Current mode is not allow to send navigation goal, please checkout to normal mode!'**
   String get not_allow_send_nav_goal;
 
   /// No description provided for @gamepad_mapping.
   ///
-  /// In zh, this message translates to:
-  /// **'手柄按键映射'**
+  /// In en, this message translates to:
+  /// **'Gamepad Mapping'**
   String get gamepad_mapping;
 
   /// No description provided for @remap.
   ///
-  /// In zh, this message translates to:
-  /// **'重新映射'**
+  /// In en, this message translates to:
+  /// **'Remap'**
   String get remap;
 
   /// No description provided for @start_mapping_message.
   ///
-  /// In zh, this message translates to:
-  /// **'请推动摇杆或按键至该位置，开始映射'**
+  /// In en, this message translates to:
+  /// **'Please push the joystick or button to this position to start mapping'**
   String get start_mapping_message;
 
   /// No description provided for @mapping_reset.
   ///
-  /// In zh, this message translates to:
-  /// **'映射已恢复默认设置'**
+  /// In en, this message translates to:
+  /// **'Mapping has been reset to default settings'**
   String get mapping_reset;
 
   /// No description provided for @left_stick_x.
   ///
-  /// In zh, this message translates to:
-  /// **'左摇杆 X'**
+  /// In en, this message translates to:
+  /// **'Left Stick X'**
   String get left_stick_x;
 
   /// No description provided for @left_stick_y.
   ///
-  /// In zh, this message translates to:
-  /// **'左摇杆 Y'**
+  /// In en, this message translates to:
+  /// **'Left Stick Y'**
   String get left_stick_y;
 
   /// No description provided for @right_stick_x.
   ///
-  /// In zh, this message translates to:
-  /// **'右摇杆 X'**
+  /// In en, this message translates to:
+  /// **'Right Stick X'**
   String get right_stick_x;
 
   /// No description provided for @right_stick_y.
   ///
-  /// In zh, this message translates to:
-  /// **'右摇杆 Y'**
+  /// In en, this message translates to:
+  /// **'Right Stick Y'**
   String get right_stick_y;
 
   /// No description provided for @button_a.
   ///
-  /// In zh, this message translates to:
-  /// **'按钮 A'**
+  /// In en, this message translates to:
+  /// **'Button A'**
   String get button_a;
 
   /// No description provided for @button_b.
   ///
-  /// In zh, this message translates to:
-  /// **'按钮 B'**
+  /// In en, this message translates to:
+  /// **'Button B'**
   String get button_b;
 
   /// No description provided for @button_x.
   ///
-  /// In zh, this message translates to:
-  /// **'按钮 X'**
+  /// In en, this message translates to:
+  /// **'Button X'**
   String get button_x;
 
   /// No description provided for @button_y.
   ///
-  /// In zh, this message translates to:
-  /// **'按钮 Y'**
+  /// In en, this message translates to:
+  /// **'Button Y'**
   String get button_y;
 
   /// No description provided for @camera_fixed_no_layer.
   ///
-  /// In zh, this message translates to:
-  /// **'相机视角固定时不可调整图层！'**
+  /// In en, this message translates to:
+  /// **'Cannot adjust layers when camera view is fixed!'**
   String get camera_fixed_no_layer;
 
   /// No description provided for @switch_to_normal_mode.
   ///
-  /// In zh, this message translates to:
-  /// **'请先切换到正常模式,再点击导航点'**
+  /// In en, this message translates to:
+  /// **'Please switch to normal mode first, then click navigation point'**
   String get switch_to_normal_mode;
 
   /// No description provided for @emergency_stop_triggered.
   ///
-  /// In zh, this message translates to:
-  /// **'已触发急停！'**
+  /// In en, this message translates to:
+  /// **'Emergency stop triggered!'**
   String get emergency_stop_triggered;
 
   /// No description provided for @stop_nav.
   ///
-  /// In zh, this message translates to:
-  /// **'停止导航'**
+  /// In en, this message translates to:
+  /// **'Stop Navigation'**
   String get stop_nav;
 
   /// No description provided for @stop.
   ///
-  /// In zh, this message translates to:
-  /// **'停止'**
+  /// In en, this message translates to:
+  /// **'Stop'**
   String get stop;
 
   /// No description provided for @layer_grid.
   ///
-  /// In zh, this message translates to:
-  /// **'网格图层'**
+  /// In en, this message translates to:
+  /// **'Grid Layer'**
   String get layer_grid;
 
   /// No description provided for @layer_global_costmap.
   ///
-  /// In zh, this message translates to:
-  /// **'全局代价地图'**
+  /// In en, this message translates to:
+  /// **'Global Cost Map'**
   String get layer_global_costmap;
 
   /// No description provided for @layer_local_costmap.
   ///
-  /// In zh, this message translates to:
-  /// **'局部代价地图'**
+  /// In en, this message translates to:
+  /// **'Local Cost Map'**
   String get layer_local_costmap;
 
   /// No description provided for @local_costmap_map_style.
   ///
-  /// In zh, this message translates to:
-  /// **'显示样式'**
+  /// In en, this message translates to:
+  /// **'Display style'**
   String get local_costmap_map_style;
 
   /// No description provided for @local_costmap_style_raw.
   ///
-  /// In zh, this message translates to:
-  /// **'栅格'**
+  /// In en, this message translates to:
+  /// **'Raw grid'**
   String get local_costmap_style_raw;
 
   /// No description provided for @local_costmap_style_costmap.
   ///
-  /// In zh, this message translates to:
-  /// **'代价'**
+  /// In en, this message translates to:
+  /// **'Cost'**
   String get local_costmap_style_costmap;
 
   /// No description provided for @local_costmap_style_obs.
   ///
-  /// In zh, this message translates to:
-  /// **'障碍'**
+  /// In en, this message translates to:
+  /// **'Obstacles'**
   String get local_costmap_style_obs;
 
   /// No description provided for @layer_laser.
   ///
-  /// In zh, this message translates to:
-  /// **'激光雷达数据'**
+  /// In en, this message translates to:
+  /// **'Laser Data'**
   String get layer_laser;
 
   /// No description provided for @layer_pointcloud.
   ///
-  /// In zh, this message translates to:
-  /// **'点云数据'**
+  /// In en, this message translates to:
+  /// **'Point Cloud Data'**
   String get layer_pointcloud;
 
   /// No description provided for @layer_global_path.
   ///
-  /// In zh, this message translates to:
-  /// **'全局路径'**
+  /// In en, this message translates to:
+  /// **'Global Path'**
   String get layer_global_path;
 
   /// No description provided for @layer_local_path.
   ///
-  /// In zh, this message translates to:
-  /// **'局部路径'**
+  /// In en, this message translates to:
+  /// **'Local Path'**
   String get layer_local_path;
 
   /// No description provided for @layer_topology.
   ///
-  /// In zh, this message translates to:
-  /// **'拓扑地图'**
+  /// In en, this message translates to:
+  /// **'Topology Map'**
   String get layer_topology;
 
   /// No description provided for @map_edit.
   ///
-  /// In zh, this message translates to:
-  /// **'地图编辑'**
+  /// In en, this message translates to:
+  /// **'Map Edit'**
   String get map_edit;
 
   /// No description provided for @zoom_in.
   ///
-  /// In zh, this message translates to:
-  /// **'放大'**
+  /// In en, this message translates to:
+  /// **'Zoom In'**
   String get zoom_in;
 
   /// No description provided for @zoom_out.
   ///
-  /// In zh, this message translates to:
-  /// **'缩小'**
+  /// In en, this message translates to:
+  /// **'Zoom Out'**
   String get zoom_out;
 
   /// No description provided for @center_on_robot.
   ///
-  /// In zh, this message translates to:
-  /// **'定位到机器人'**
+  /// In en, this message translates to:
+  /// **'Center on Robot'**
   String get center_on_robot;
 
   /// No description provided for @exit.
   ///
-  /// In zh, this message translates to:
-  /// **'退出'**
+  /// In en, this message translates to:
+  /// **'Exit'**
   String get exit;
 
   /// No description provided for @layers.
   ///
-  /// In zh, this message translates to:
-  /// **'图层'**
+  /// In en, this message translates to:
+  /// **'Layers'**
   String get layers;
 
   /// No description provided for @layer_color.
   ///
-  /// In zh, this message translates to:
-  /// **'显示颜色'**
+  /// In en, this message translates to:
+  /// **'Color'**
   String get layer_color;
 
   /// No description provided for @layer_dot_size.
   ///
-  /// In zh, this message translates to:
-  /// **'点大小'**
+  /// In en, this message translates to:
+  /// **'Dot size'**
   String get layer_dot_size;
 
   /// No description provided for @reloc.
   ///
-  /// In zh, this message translates to:
-  /// **'重定位'**
+  /// In en, this message translates to:
+  /// **'Relocalization'**
   String get reloc;
 
   /// No description provided for @camera.
   ///
-  /// In zh, this message translates to:
-  /// **'相机'**
+  /// In en, this message translates to:
+  /// **'Camera'**
   String get camera;
 
   /// No description provided for @manual_control.
   ///
-  /// In zh, this message translates to:
-  /// **'手动控制'**
+  /// In en, this message translates to:
+  /// **'Manual Control'**
   String get manual_control;
 
   /// No description provided for @emergency_stop.
   ///
-  /// In zh, this message translates to:
-  /// **'急停'**
+  /// In en, this message translates to:
+  /// **'Emergency Stop'**
   String get emergency_stop;
 
   /// No description provided for @stop_navigation.
   ///
-  /// In zh, this message translates to:
-  /// **'停止导航'**
+  /// In en, this message translates to:
+  /// **'Stop Navigation'**
   String get stop_navigation;
 
   /// No description provided for @open_file.
   ///
-  /// In zh, this message translates to:
-  /// **'打开文件'**
+  /// In en, this message translates to:
+  /// **'Open File'**
   String get open_file;
 
   /// No description provided for @save_file.
   ///
-  /// In zh, this message translates to:
-  /// **'保存文件'**
+  /// In en, this message translates to:
+  /// **'Save File'**
   String get save_file;
 
   /// No description provided for @undo.
   ///
-  /// In zh, this message translates to:
-  /// **'撤销'**
+  /// In en, this message translates to:
+  /// **'Undo'**
   String get undo;
 
   /// No description provided for @redo.
   ///
-  /// In zh, this message translates to:
-  /// **'重做'**
+  /// In en, this message translates to:
+  /// **'Redo'**
   String get redo;
 
   /// No description provided for @exit_edit_mode.
   ///
-  /// In zh, this message translates to:
-  /// **'退出编辑模式'**
+  /// In en, this message translates to:
+  /// **'Exit Edit Mode'**
   String get exit_edit_mode;
 
   /// No description provided for @add_nav_point.
   ///
-  /// In zh, this message translates to:
-  /// **'添加导航点'**
+  /// In en, this message translates to:
+  /// **'Add Navigation Point'**
   String get add_nav_point;
 
   /// No description provided for @draw_obstacle.
   ///
-  /// In zh, this message translates to:
-  /// **'绘制障碍物'**
+  /// In en, this message translates to:
+  /// **'Draw Obstacle'**
   String get draw_obstacle;
 
   /// No description provided for @erase_obstacle.
   ///
-  /// In zh, this message translates to:
-  /// **'擦除障碍物'**
+  /// In en, this message translates to:
+  /// **'Erase Obstacle'**
   String get erase_obstacle;
 
   /// No description provided for @add_current_position.
   ///
-  /// In zh, this message translates to:
-  /// **'添加当前位置'**
+  /// In en, this message translates to:
+  /// **'Add Current Position'**
   String get add_current_position;
 
   /// No description provided for @map_management.
   ///
-  /// In zh, this message translates to:
-  /// **'地图管理'**
+  /// In en, this message translates to:
+  /// **'Map Management'**
   String get map_management;
 
   /// No description provided for @save_success.
   ///
-  /// In zh, this message translates to:
-  /// **'保存成功'**
+  /// In en, this message translates to:
+  /// **'Save Success'**
   String get save_success;
 
   /// No description provided for @save_success_desc.
   ///
-  /// In zh, this message translates to:
-  /// **'已发布拓扑地图与栅格地图'**
+  /// In en, this message translates to:
+  /// **'Topology map and occupancy map published'**
   String get save_success_desc;
 
   /// No description provided for @save_failed.
   ///
-  /// In zh, this message translates to:
-  /// **'保存失败'**
+  /// In en, this message translates to:
+  /// **'Save Failed'**
   String get save_failed;
 
   /// No description provided for @save_as.
   ///
-  /// In zh, this message translates to:
-  /// **'另存为'**
+  /// In en, this message translates to:
+  /// **'Save As'**
   String get save_as;
 
   /// No description provided for @map_name.
   ///
-  /// In zh, this message translates to:
-  /// **'地图名称'**
+  /// In en, this message translates to:
+  /// **'Map Name'**
   String get map_name;
 
   /// No description provided for @save_as_success.
   ///
-  /// In zh, this message translates to:
-  /// **'另存为成功'**
+  /// In en, this message translates to:
+  /// **'Save As Success'**
   String get save_as_success;
 
   /// No description provided for @save_as_desc.
   ///
-  /// In zh, this message translates to:
-  /// **'已保存为: {name}'**
+  /// In en, this message translates to:
+  /// **'Saved as: {name}'**
   String save_as_desc(Object name);
 
   /// No description provided for @save_as_failed.
   ///
-  /// In zh, this message translates to:
-  /// **'另存为失败'**
+  /// In en, this message translates to:
+  /// **'Save As Failed'**
   String get save_as_failed;
 
   /// No description provided for @tool_move.
   ///
-  /// In zh, this message translates to:
-  /// **'移动'**
+  /// In en, this message translates to:
+  /// **'Move'**
   String get tool_move;
 
   /// No description provided for @tool_point.
   ///
-  /// In zh, this message translates to:
-  /// **'点位'**
+  /// In en, this message translates to:
+  /// **'Point'**
   String get tool_point;
 
   /// No description provided for @tool_route.
   ///
-  /// In zh, this message translates to:
-  /// **'拓扑线'**
+  /// In en, this message translates to:
+  /// **'Route'**
   String get tool_route;
 
   /// No description provided for @tool_brush.
   ///
-  /// In zh, this message translates to:
-  /// **'画笔'**
+  /// In en, this message translates to:
+  /// **'Brush'**
   String get tool_brush;
 
   /// No description provided for @tool_eraser.
   ///
-  /// In zh, this message translates to:
-  /// **'橡皮'**
+  /// In en, this message translates to:
+  /// **'Eraser'**
   String get tool_eraser;
 
   /// No description provided for @route_start_selected.
   ///
-  /// In zh, this message translates to:
-  /// **'已选择起点: {name}'**
+  /// In en, this message translates to:
+  /// **'Start selected: {name}'**
   String route_start_selected(Object name);
 
   /// No description provided for @route_created.
   ///
-  /// In zh, this message translates to:
-  /// **'已创建连线: {from} -> {to}'**
+  /// In en, this message translates to:
+  /// **'Route created: {from} -> {to}'**
   String route_created(Object from, Object to);
 
   /// No description provided for @route_properties.
   ///
-  /// In zh, this message translates to:
-  /// **'拓扑线属性'**
+  /// In en, this message translates to:
+  /// **'Route Properties'**
   String get route_properties;
 
   /// No description provided for @direction.
   ///
-  /// In zh, this message translates to:
-  /// **'方向: {from} -> {to}'**
+  /// In en, this message translates to:
+  /// **'Direction: {from} -> {to}'**
   String direction(Object from, Object to);
 
   /// No description provided for @controller.
   ///
-  /// In zh, this message translates to:
-  /// **'控制器'**
+  /// In en, this message translates to:
+  /// **'Controller'**
   String get controller;
 
   /// No description provided for @controller_readonly.
   ///
-  /// In zh, this message translates to:
-  /// **'控制器（只读）'**
+  /// In en, this message translates to:
+  /// **'Controller (Read Only)'**
   String get controller_readonly;
 
   /// No description provided for @close.
   ///
-  /// In zh, this message translates to:
-  /// **'关闭'**
+  /// In en, this message translates to:
+  /// **'Close'**
   String get close;
 
   /// No description provided for @delete_route.
   ///
-  /// In zh, this message translates to:
-  /// **'删除该方向'**
+  /// In en, this message translates to:
+  /// **'Delete This Direction'**
   String get delete_route;
 
   /// No description provided for @point_properties.
   ///
-  /// In zh, this message translates to:
-  /// **'点位属性'**
+  /// In en, this message translates to:
+  /// **'Point Properties'**
   String get point_properties;
 
   /// No description provided for @name.
   ///
-  /// In zh, this message translates to:
-  /// **'名称'**
+  /// In en, this message translates to:
+  /// **'Name'**
   String get name;
 
   /// No description provided for @delete_point.
   ///
-  /// In zh, this message translates to:
-  /// **'删除该点位'**
+  /// In en, this message translates to:
+  /// **'Delete This Point'**
   String get delete_point;
 
   /// No description provided for @retry.
   ///
-  /// In zh, this message translates to:
-  /// **'重试'**
+  /// In en, this message translates to:
+  /// **'Retry'**
   String get retry;
 
   /// No description provided for @no_map.
   ///
-  /// In zh, this message translates to:
-  /// **'暂无地图'**
+  /// In en, this message translates to:
+  /// **'No Map'**
   String get no_map;
 
   /// No description provided for @default_dynamic_map_tag.
   ///
-  /// In zh, this message translates to:
-  /// **'默认'**
+  /// In en, this message translates to:
+  /// **'Default'**
   String get default_dynamic_map_tag;
 
   /// No description provided for @editing_map_tag.
   ///
-  /// In zh, this message translates to:
-  /// **'编辑中'**
+  /// In en, this message translates to:
+  /// **'Editing'**
   String get editing_map_tag;
 
   /// No description provided for @current_in_use.
   ///
-  /// In zh, this message translates to:
-  /// **'当前使用'**
+  /// In en, this message translates to:
+  /// **'In Use'**
   String get current_in_use;
 
   /// No description provided for @switch_map.
   ///
-  /// In zh, this message translates to:
-  /// **'切换'**
+  /// In en, this message translates to:
+  /// **'Switch'**
   String get switch_map;
 
   /// No description provided for @delete_map_tooltip_current.
   ///
-  /// In zh, this message translates to:
-  /// **'当前使用中，不可删除'**
+  /// In en, this message translates to:
+  /// **'In use, cannot delete'**
   String get delete_map_tooltip_current;
 
   /// No description provided for @delete.
   ///
-  /// In zh, this message translates to:
-  /// **'删除'**
+  /// In en, this message translates to:
+  /// **'Delete'**
   String get delete;
 
   /// No description provided for @confirm_delete.
   ///
-  /// In zh, this message translates to:
-  /// **'确认删除'**
+  /// In en, this message translates to:
+  /// **'Confirm Delete'**
   String get confirm_delete;
 
   /// No description provided for @confirm_delete_map.
   ///
-  /// In zh, this message translates to:
-  /// **'确定要删除地图「{name}」吗？此操作不可恢复。'**
+  /// In en, this message translates to:
+  /// **'Delete map \"{name}\"? This cannot be undone.'**
   String confirm_delete_map(Object name);
 
   /// No description provided for @map_deleted.
   ///
-  /// In zh, this message translates to:
-  /// **'已删除: {name}'**
+  /// In en, this message translates to:
+  /// **'Deleted: {name}'**
   String map_deleted(Object name);
 
   /// No description provided for @delete_failed.
   ///
-  /// In zh, this message translates to:
-  /// **'删除失败: {e}'**
+  /// In en, this message translates to:
+  /// **'Delete failed: {e}'**
   String delete_failed(Object e);
 
   /// No description provided for @position_label.
   ///
-  /// In zh, this message translates to:
-  /// **'位置'**
+  /// In en, this message translates to:
+  /// **'Position'**
   String get position_label;
 
   /// No description provided for @position_format.
   ///
-  /// In zh, this message translates to:
-  /// **'位置: ({x}, {y})'**
+  /// In en, this message translates to:
+  /// **'Position: ({x}, {y})'**
   String position_format(Object x, Object y);
 
   /// No description provided for @init_error.
   ///
-  /// In zh, this message translates to:
-  /// **'发生错误：{error}'**
+  /// In en, this message translates to:
+  /// **'Error: {error}'**
   String init_error(Object error);
 
   /// No description provided for @diagnostic_warning.
   ///
-  /// In zh, this message translates to:
-  /// **'警告'**
+  /// In en, this message translates to:
+  /// **'Warning'**
   String get diagnostic_warning;
 
   /// No description provided for @diagnostic_error.
   ///
-  /// In zh, this message translates to:
-  /// **'错误'**
+  /// In en, this message translates to:
+  /// **'Error'**
   String get diagnostic_error;
 
   /// No description provided for @diagnostic_stale.
   ///
-  /// In zh, this message translates to:
-  /// **'失活'**
+  /// In en, this message translates to:
+  /// **'Stale'**
   String get diagnostic_stale;
 
   /// No description provided for @diagnostic_normal.
   ///
-  /// In zh, this message translates to:
-  /// **'正常'**
+  /// In en, this message translates to:
+  /// **'Normal'**
   String get diagnostic_normal;
 
   /// No description provided for @diagnostic_health.
   ///
-  /// In zh, this message translates to:
-  /// **'健康诊断:[{level}] {component}'**
+  /// In en, this message translates to:
+  /// **'Diagnostic: [{level}] {component}'**
   String diagnostic_health(Object level, Object component);
 
   /// No description provided for @diagnostic_hardware.
   ///
-  /// In zh, this message translates to:
-  /// **'硬件ID: {id}\n消息: {msg}'**
+  /// In en, this message translates to:
+  /// **'Hardware ID: {id}\nMessage: {msg}'**
   String diagnostic_hardware(Object id, Object msg);
 
   /// No description provided for @error_count.
   ///
-  /// In zh, this message translates to:
-  /// **'错误: {count}'**
+  /// In en, this message translates to:
+  /// **'Errors: {count}'**
   String error_count(Object count);
 
   /// No description provided for @warn_count.
   ///
-  /// In zh, this message translates to:
-  /// **'警告: {count}'**
+  /// In en, this message translates to:
+  /// **'Warnings: {count}'**
   String warn_count(Object count);
 
   /// No description provided for @nav_point_info.
   ///
-  /// In zh, this message translates to:
-  /// **'导航点信息'**
+  /// In en, this message translates to:
+  /// **'Nav Point Info'**
   String get nav_point_info;
 
   /// No description provided for @position_coords.
   ///
-  /// In zh, this message translates to:
-  /// **'位置坐标'**
+  /// In en, this message translates to:
+  /// **'Position Coords'**
   String get position_coords;
 
   /// No description provided for @coord_x.
   ///
-  /// In zh, this message translates to:
-  /// **'X坐标'**
+  /// In en, this message translates to:
+  /// **'X'**
   String get coord_x;
 
   /// No description provided for @coord_y.
   ///
-  /// In zh, this message translates to:
-  /// **'Y坐标'**
+  /// In en, this message translates to:
+  /// **'Y'**
   String get coord_y;
 
   /// No description provided for @heading.
   ///
-  /// In zh, this message translates to:
-  /// **'方向'**
+  /// In en, this message translates to:
+  /// **'Heading'**
   String get heading;
 
   /// No description provided for @stop_manual_first.
   ///
-  /// In zh, this message translates to:
-  /// **'请先停止手动控制'**
+  /// In en, this message translates to:
+  /// **'Please stop manual control first'**
   String get stop_manual_first;
 
   /// No description provided for @nav_goal_sent.
   ///
-  /// In zh, this message translates to:
-  /// **'已发送导航目标到 {name}'**
+  /// In en, this message translates to:
+  /// **'Nav goal sent to {name}'**
   String nav_goal_sent(Object name);
 
   /// No description provided for @send_nav_goal.
   ///
-  /// In zh, this message translates to:
-  /// **'发送导航目标'**
+  /// In en, this message translates to:
+  /// **'Send Nav Goal'**
   String get send_nav_goal;
 
   /// No description provided for @emergency_stopped.
   ///
-  /// In zh, this message translates to:
-  /// **'急停已触发'**
+  /// In en, this message translates to:
+  /// **'Emergency Stop Triggered'**
   String get emergency_stopped;
 
   /// No description provided for @nav_stopped.
   ///
-  /// In zh, this message translates to:
-  /// **'导航已停止'**
+  /// In en, this message translates to:
+  /// **'Navigation Stopped'**
   String get nav_stopped;
 
   /// No description provided for @legend_free.
   ///
-  /// In zh, this message translates to:
-  /// **'自由'**
+  /// In en, this message translates to:
+  /// **'Free'**
   String get legend_free;
 
   /// No description provided for @legend_occupied.
   ///
-  /// In zh, this message translates to:
-  /// **'障碍'**
+  /// In en, this message translates to:
+  /// **'Occupied'**
   String get legend_occupied;
 
   /// No description provided for @legend_unknown.
   ///
-  /// In zh, this message translates to:
-  /// **'未知'**
+  /// In en, this message translates to:
+  /// **'Unknown'**
   String get legend_unknown;
 
   /// No description provided for @map_tile_colors.
   ///
-  /// In zh, this message translates to:
-  /// **'地图颜色'**
+  /// In en, this message translates to:
+  /// **'Map Colors'**
   String get map_tile_colors;
 
   /// No description provided for @map_tile_free_thresh.
   ///
-  /// In zh, this message translates to:
-  /// **'自由阈值'**
+  /// In en, this message translates to:
+  /// **'Free threshold'**
   String get map_tile_free_thresh;
 
   /// No description provided for @map_tile_occ_thresh.
   ///
-  /// In zh, this message translates to:
-  /// **'障碍阈值'**
+  /// In en, this message translates to:
+  /// **'Occupied threshold'**
   String get map_tile_occ_thresh;
 
   /// No description provided for @nav_goal.
   ///
-  /// In zh, this message translates to:
-  /// **'导航目标'**
+  /// In en, this message translates to:
+  /// **'Nav Goal'**
   String get nav_goal;
 
   /// No description provided for @charge_station.
   ///
-  /// In zh, this message translates to:
-  /// **'充电站'**
+  /// In en, this message translates to:
+  /// **'Charge Station'**
   String get charge_station;
 
   /// No description provided for @layer_trace.
   ///
-  /// In zh, this message translates to:
-  /// **'轨迹路径'**
+  /// In en, this message translates to:
+  /// **'Trace Path'**
   String get layer_trace;
 
   /// No description provided for @layer_robot_footprint.
   ///
-  /// In zh, this message translates to:
-  /// **'机器人轮廓'**
+  /// In en, this message translates to:
+  /// **'Robot Footprint'**
   String get layer_robot_footprint;
 
   /// No description provided for @camera_image.
   ///
-  /// In zh, this message translates to:
-  /// **'相机图像'**
+  /// In en, this message translates to:
+  /// **'Camera Image'**
   String get camera_image;
 
   /// No description provided for @no_map_available.
   ///
-  /// In zh, this message translates to:
-  /// **'当前无地图可用，请先选择或创建地图'**
+  /// In en, this message translates to:
+  /// **'No map available, please select or create one first'**
   String get no_map_available;
 
   /// No description provided for @invalid_json.
   ///
-  /// In zh, this message translates to:
-  /// **'导入失败：无效的JSON格式'**
+  /// In en, this message translates to:
+  /// **'Import failed: invalid JSON format'**
   String get invalid_json;
 
   /// No description provided for @data_stale.
   ///
-  /// In zh, this message translates to:
-  /// **'超过5s未更新数据'**
+  /// In en, this message translates to:
+  /// **'No data update for over 5s'**
   String get data_stale;
 
   /// No description provided for @unknown_hardware.
   ///
-  /// In zh, this message translates to:
-  /// **'未知硬件'**
+  /// In en, this message translates to:
+  /// **'Unknown hardware'**
   String get unknown_hardware;
 
   /// No description provided for @status.
   ///
-  /// In zh, this message translates to:
-  /// **'状态'**
+  /// In en, this message translates to:
+  /// **'Status'**
   String get status;
 
   /// No description provided for @update_time.
   ///
-  /// In zh, this message translates to:
-  /// **'更新时间'**
+  /// In en, this message translates to:
+  /// **'Update time'**
   String get update_time;
 
   /// No description provided for @no_detail.
   ///
-  /// In zh, this message translates to:
-  /// **'暂无详细信息'**
+  /// In en, this message translates to:
+  /// **'No details available'**
   String get no_detail;
 
   /// No description provided for @last_update.
   ///
-  /// In zh, this message translates to:
-  /// **'最后更新'**
+  /// In en, this message translates to:
+  /// **'Last update'**
   String get last_update;
 
   /// No description provided for @no_diagnostic_data.
   ///
-  /// In zh, this message translates to:
-  /// **'暂无诊断数据'**
+  /// In en, this message translates to:
+  /// **'No diagnostic data'**
   String get no_diagnostic_data;
 
   /// No description provided for @no_matching_diagnostic.
   ///
-  /// In zh, this message translates to:
-  /// **'没有找到匹配的诊断数据'**
+  /// In en, this message translates to:
+  /// **'No matching diagnostic data found'**
   String get no_matching_diagnostic;
 
   /// No description provided for @all.
   ///
-  /// In zh, this message translates to:
-  /// **'全部'**
+  /// In en, this message translates to:
+  /// **'All'**
   String get all;
 
   /// No description provided for @clear_filter.
   ///
-  /// In zh, this message translates to:
-  /// **'清除筛选'**
+  /// In en, this message translates to:
+  /// **'Clear filter'**
   String get clear_filter;
 
   /// No description provided for @show_hardware_count.
   ///
-  /// In zh, this message translates to:
-  /// **'显示 {count} 个硬件组'**
+  /// In en, this message translates to:
+  /// **'Showing {count} hardware groups'**
   String show_hardware_count(Object count);
 
   /// No description provided for @clear_all_filter.
   ///
-  /// In zh, this message translates to:
-  /// **'清除所有筛选'**
+  /// In en, this message translates to:
+  /// **'Clear all filters'**
   String get clear_all_filter;
 
   /// No description provided for @component_count.
   ///
-  /// In zh, this message translates to:
-  /// **'组件数: {count}'**
+  /// In en, this message translates to:
+  /// **'Components: {count}'**
   String component_count(Object count);
 
   /// No description provided for @system_diagnostic.
   ///
-  /// In zh, this message translates to:
-  /// **'系统诊断'**
+  /// In en, this message translates to:
+  /// **'System Diagnostic'**
   String get system_diagnostic;
 
   /// No description provided for @refresh.
   ///
-  /// In zh, this message translates to:
-  /// **'刷新'**
+  /// In en, this message translates to:
+  /// **'Refresh'**
   String get refresh;
 
   /// No description provided for @search_component_hint.
   ///
-  /// In zh, this message translates to:
-  /// **'搜索组件名称...'**
+  /// In en, this message translates to:
+  /// **'Search component...'**
   String get search_component_hint;
 
   /// No description provided for @status_filter.
   ///
-  /// In zh, this message translates to:
-  /// **'状态筛选'**
+  /// In en, this message translates to:
+  /// **'Status filter'**
   String get status_filter;
 
   /// No description provided for @table_key.
   ///
-  /// In zh, this message translates to:
-  /// **'键'**
+  /// In en, this message translates to:
+  /// **'Key'**
   String get table_key;
 
   /// No description provided for @table_value.
   ///
-  /// In zh, this message translates to:
-  /// **'值'**
+  /// In en, this message translates to:
+  /// **'Value'**
   String get table_value;
 
   /// No description provided for @detail_info.
   ///
-  /// In zh, this message translates to:
-  /// **'详细信息'**
+  /// In en, this message translates to:
+  /// **'Detail'**
   String get detail_info;
 
   /// No description provided for @diagnostic_overview.
   ///
-  /// In zh, this message translates to:
-  /// **'诊断状态总览'**
+  /// In en, this message translates to:
+  /// **'Diagnostic Overview'**
   String get diagnostic_overview;
 
   /// No description provided for @hardware_id.
   ///
-  /// In zh, this message translates to:
-  /// **'硬件ID'**
+  /// In en, this message translates to:
+  /// **'Hardware ID'**
   String get hardware_id;
 
   /// No description provided for @ssh_config_title.
   ///
-  /// In zh, this message translates to:
-  /// **'SSH 配置'**
+  /// In en, this message translates to:
+  /// **'SSH'**
   String get ssh_config_title;
 
   /// No description provided for @ssh_target_same_as_robot.
   ///
-  /// In zh, this message translates to:
-  /// **'目标主机与当前机器人 IP 一致：{host}'**
+  /// In en, this message translates to:
+  /// **'Target host matches robot IP: {host}'**
   String ssh_target_same_as_robot(String host);
 
   /// No description provided for @ssh_username.
   ///
-  /// In zh, this message translates to:
-  /// **'用户名'**
+  /// In en, this message translates to:
+  /// **'Username'**
   String get ssh_username;
 
   /// No description provided for @ssh_password.
   ///
-  /// In zh, this message translates to:
-  /// **'密码'**
+  /// In en, this message translates to:
+  /// **'Password'**
   String get ssh_password;
 
   /// No description provided for @ssh_save_to_backend.
   ///
-  /// In zh, this message translates to:
-  /// **'保存到后台'**
+  /// In en, this message translates to:
+  /// **'Save to server'**
   String get ssh_save_to_backend;
 
   /// No description provided for @ssh_config_saved.
   ///
-  /// In zh, this message translates to:
-  /// **'SSH 配置已保存'**
+  /// In en, this message translates to:
+  /// **'SSH settings saved'**
   String get ssh_config_saved;
 
   /// No description provided for @ssh_remote_section.
   ///
-  /// In zh, this message translates to:
-  /// **'SSH 远程'**
+  /// In en, this message translates to:
+  /// **'SSH'**
   String get ssh_remote_section;
 
   /// No description provided for @ssh_config_list_tile_title.
   ///
-  /// In zh, this message translates to:
-  /// **'登录与端口'**
+  /// In en, this message translates to:
+  /// **'Login and port'**
   String get ssh_config_list_tile_title;
 
   /// No description provided for @ssh_not_configured_hint.
   ///
-  /// In zh, this message translates to:
-  /// **'未配置（保存在后台 gui_app_settings.json）'**
+  /// In en, this message translates to:
+  /// **'Not configured (stored in gui_app_settings.json on server)'**
   String get ssh_not_configured_hint;
 
   /// No description provided for @ssh_user_at_host_port.
   ///
-  /// In zh, this message translates to:
+  /// In en, this message translates to:
   /// **'{user}@{host}:{port}'**
   String ssh_user_at_host_port(String user, String host, int port);
 
   /// No description provided for @ssh_required_title.
   ///
-  /// In zh, this message translates to:
-  /// **'需要 SSH 配置'**
+  /// In en, this message translates to:
+  /// **'SSH setup required'**
   String get ssh_required_title;
 
   /// No description provided for @ssh_required_body.
   ///
-  /// In zh, this message translates to:
-  /// **'请配置 SSH 端口、用户名与密码（目标主机与当前机器人 IP 一致，保存到后台）。'**
+  /// In en, this message translates to:
+  /// **'Configure SSH port, username and password (target host matches robot IP; saved on server).'**
   String get ssh_required_body;
 
   /// No description provided for @ssh_go_configure.
   ///
-  /// In zh, this message translates to:
-  /// **'去配置'**
+  /// In en, this message translates to:
+  /// **'Configure'**
   String get ssh_go_configure;
 
   /// No description provided for @ssh_quick_commands_tooltip.
   ///
-  /// In zh, this message translates to:
-  /// **'SSH 快捷指令'**
+  /// In en, this message translates to:
+  /// **'SSH quick commands'**
   String get ssh_quick_commands_tooltip;
 
   /// No description provided for @ssh_terminal_tooltip.
   ///
-  /// In zh, this message translates to:
-  /// **'SSH 终端'**
+  /// In en, this message translates to:
+  /// **'SSH terminal'**
   String get ssh_terminal_tooltip;
 
   /// No description provided for @ssh_quick_page_title.
   ///
-  /// In zh, this message translates to:
-  /// **'SSH 快捷指令'**
+  /// In en, this message translates to:
+  /// **'SSH quick commands'**
   String get ssh_quick_page_title;
 
   /// No description provided for @ssh_quick_save_list_tooltip.
   ///
-  /// In zh, this message translates to:
-  /// **'保存列表'**
+  /// In en, this message translates to:
+  /// **'Save list'**
   String get ssh_quick_save_list_tooltip;
 
   /// No description provided for @ssh_quick_platform_unsupported.
   ///
-  /// In zh, this message translates to:
-  /// **'当前平台不支持 SSH'**
+  /// In en, this message translates to:
+  /// **'SSH is not supported on this platform'**
   String get ssh_quick_platform_unsupported;
 
   /// No description provided for @ssh_quick_add_title.
   ///
-  /// In zh, this message translates to:
-  /// **'添加快捷指令'**
+  /// In en, this message translates to:
+  /// **'Add quick command'**
   String get ssh_quick_add_title;
 
   /// No description provided for @ssh_quick_label_name.
   ///
-  /// In zh, this message translates to:
-  /// **'名称'**
+  /// In en, this message translates to:
+  /// **'Name'**
   String get ssh_quick_label_name;
 
   /// No description provided for @ssh_quick_label_cmd.
   ///
-  /// In zh, this message translates to:
-  /// **'命令'**
+  /// In en, this message translates to:
+  /// **'Command'**
   String get ssh_quick_label_cmd;
 
   /// No description provided for @ssh_quick_use_sudo.
   ///
-  /// In zh, this message translates to:
-  /// **'sudo 执行（通过 SSH 密码）'**
+  /// In en, this message translates to:
+  /// **'Run with sudo (uses SSH password)'**
   String get ssh_quick_use_sudo;
 
   /// No description provided for @ssh_quick_sudo_need_password.
   ///
-  /// In zh, this message translates to:
-  /// **'已开启 sudo 时需填写 SSH 密码'**
+  /// In en, this message translates to:
+  /// **'SSH password required when sudo is enabled'**
   String get ssh_quick_sudo_need_password;
 
   /// No description provided for @ssh_quick_no_output.
   ///
-  /// In zh, this message translates to:
-  /// **'(无输出)'**
+  /// In en, this message translates to:
+  /// **'(no output)'**
   String get ssh_quick_no_output;
 
   /// No description provided for @ssh_quick_close.
   ///
-  /// In zh, this message translates to:
-  /// **'关闭'**
+  /// In en, this message translates to:
+  /// **'Close'**
   String get ssh_quick_close;
 
   /// No description provided for @ssh_quick_cancel.
   ///
-  /// In zh, this message translates to:
-  /// **'取消'**
+  /// In en, this message translates to:
+  /// **'Cancel'**
   String get ssh_quick_cancel;
 
   /// No description provided for @ssh_quick_add_btn.
   ///
-  /// In zh, this message translates to:
-  /// **'添加'**
+  /// In en, this message translates to:
+  /// **'Add'**
   String get ssh_quick_add_btn;
 }
 
@@ -1532,7 +1528,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['en', 'zh'].contains(locale.languageCode);
+      <String>['en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -1543,8 +1539,6 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   switch (locale.languageCode) {
     case 'en':
       return AppLocalizationsEn();
-    case 'zh':
-      return AppLocalizationsZh();
   }
 
   throw FlutterError(
