@@ -34,7 +34,7 @@ struct AppConfig {
   std::string DiagnosticTopic{"/diagnostics"};
   std::string RelocTopic{"/initialpose"};
   std::string NavGoalTopic{"/goal_pose"};
-  std::string SpeedCtrlTopic{"/cmd_vel"};
+  std::string SpeedCtrlTopic{"/cmd_vel_joy"};
   std::string MapFrameName{"map"};
   std::string BaseLinkFrameName{"base_link"};
   std::string TopologyLiveTopic{"/map/topology"};

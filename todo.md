@@ -31,7 +31,11 @@
     protobuf-compiler \
     libc-ares-dev \
     cmake \
-    build-essential 
+    build-essential \
+    clang \
+    ninja-build \
+    libgtk-3-dev \
+    mesa-utils
   ```
 
 ### 1.3 — Flutter SDK Install
@@ -103,6 +107,7 @@
   ```bash
   cd ~/Desktop/robot_sim/src/rom2109/ROS_Flutter_Gui_App
   ./build.sh
+  ./build_cn.sh
   ```
   > ✅ Success ဆိုရင် ဒီ output တွေ မြင်ရပါမယ်:
   > ```

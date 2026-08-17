@@ -118,7 +118,7 @@ class RosGuiNode : private detail::RosGuiNodeRclInit, public rclcpp::Node, publi
   std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
   rclcpp::TimerBase::SharedPtr pose_timer_;
 
-  rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_pub_;
+  rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr cmd_vel_joy_pub_;
   rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr nav_goal_pub_;
   rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr reloc_pub_;
   rclcpp::Publisher<std_msgs::msg::Empty>::SharedPtr nav_cancel_pub_;

@@ -250,7 +250,7 @@ class Setting {
         'RelocTopic': '/initialpose',
         'NavGoalTopic': '/goal_pose',
         'OdomTopic': '/wheel/odometry',
-        'SpeedCtrlTopic': '/cmd_vel',
+        'SpeedCtrlTopic': '/cmd_vel_joy',
         'BatteryTopic': '/battery_status',
         'RobotFootprintTopic': '/local_costmap/published_footprint',
         'LocalCostmapTopic': '/local_costmap/costmap',
@@ -287,7 +287,7 @@ class Setting {
         'RelocTopic': '/initialpose',
         'NavGoalTopic': 'move_base_simple/goal',
         'OdomTopic': '/odom',
-        'SpeedCtrlTopic': '/cmd_vel',
+        'SpeedCtrlTopic': '/cmd_vel_joy',
         'BatteryTopic': '/battery_status',
         'RobotFootprintTopic': '/local_costmap/published_footprint',
         'LocalCostmapTopic': '/local_costmap/costmap',
@@ -681,7 +681,7 @@ class Setting {
   }
 
   String get speedCtrlTopic {
-    return _guiStr('SpeedCtrlTopic', "/cmd_vel");
+    return _guiStr('SpeedCtrlTopic', "/cmd_vel_joy");
   }
 
   // 添加最大速度设置方法

@@ -26,12 +26,12 @@ void RobotWsController::handleNewMessage(const drogon::WebSocketConnectionPtr& c
   }
   switch (msg.payload_case()) {
     case pb::ClientRobotMessage::kCmdVel: {
-      const auto& tw = msg.cmd_vel();
+      const auto& tw = msg.cmd_vel_joy();
       const double vx = tw.linear().x();
       const double vy = tw.linear().y();
       const double vw = tw.angular().z();
       if (!node->PublishCmdVel(vx, vy, vw)) {
-        LOGGER_WARN("robot ws cmd_vel publish failed");
+        LOGGER_WARN("robot ws cmd_vel_joy publish failed");
       }
       break;
     }

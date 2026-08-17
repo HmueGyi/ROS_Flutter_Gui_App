@@ -194,7 +194,7 @@ void RosGuiNode::PoseTimerTick() {
 
 void RosGuiNode::ClearGuiStreamsLocked() {
   stream_subs_.clear();
-  cmd_vel_pub_.reset();
+  cmd_vel_joy_pub_.reset();
   nav_goal_pub_.reset();
   reloc_pub_.reset();
   nav_cancel_pub_.reset();
@@ -204,7 +204,7 @@ void RosGuiNode::SetupGuiStreamsLocked() {
   rclcpp::SubscriptionOptions sub_opt;
   sub_opt.callback_group = stream_callback_group_;
 
-  cmd_vel_pub_ = create_publisher<geometry_msgs::msg::Twist>(NormalizeTopicName(gui_settings_.SpeedCtrlTopic), 10);
+  cmd_vel_joy_pub_ = create_publisher<geometry_msgs::msg::Twist>(NormalizeTopicName(gui_settings_.SpeedCtrlTopic), 10);
   nav_goal_pub_ =
       create_publisher<geometry_msgs::msg::PoseStamped>(NormalizeTopicName(gui_settings_.NavGoalTopic), 10);
   reloc_pub_ = create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>(
@@ -282,7 +282,7 @@ bool RosGuiNode::ReloadGuiStreams(const AppConfig& settings) {
 
 bool RosGuiNode::PublishCmdVel(double vx, double vy, double vw) {
   std::lock_guard<std::mutex> lk(stream_mu_);
-  if (!cmd_vel_pub_) {
+  if (!cmd_vel_joy_pub_) {
     return false;
   }
   geometry_msgs::msg::Twist t;
@@ -292,7 +292,7 @@ bool RosGuiNode::PublishCmdVel(double vx, double vy, double vw) {
   t.angular.x = 0;
   t.angular.y = 0;
   t.angular.z = vw;
-  cmd_vel_pub_->publish(t);
+  cmd_vel_joy_pub_->publish(t);
   return true;
 }
 

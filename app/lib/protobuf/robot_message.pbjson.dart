@@ -311,7 +311,7 @@ const ClientRobotMessage$json = {
       '10': 'controlSubscribeImage'
     },
     {
-      '1': 'cmd_vel',
+      '1': 'cmd_vel_joy',
       '3': 2,
       '4': 1,
       '5': 11,

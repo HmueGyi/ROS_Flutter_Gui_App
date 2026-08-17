@@ -71,7 +71,7 @@ message RobotMessage {
 message ClientRobotMessage {
   oneof payload {
     ControlSubscribeImage control_subscribe_image = 1;
-    Twist cmd_vel = 2;
+    Twist cmd_vel_joy = 2;
     PoseStamped nav_goal = 3;
     CancelNav cancel_nav = 4;
     PoseWithCovarianceStamped reloc = 5;
