@@ -45,7 +45,7 @@ The UI centers on a **tiled map** with robot pose, laser/path/cost overlays, and
 <p align="center"><sub>Main view · tiled map · layer toggles · teleop / nav entry points</sub></p>
 
 <p align="center">
-  <img src="doc/image/map_edit_page.jpg" alt="Map editing" width="78%" />
+  <img src="doc/image/map_edit_page.png" alt="Map editing" width="78%" />
 </p>
 
 <p align="center"><sub>Map edit · obstacles & topology · synced via backend REST</sub></p>

@@ -28,7 +28,7 @@ static std::string GetHomeDir() {
 
 MapManager::MapManager() : map_available_(false) {
   std::string home = GetHomeDir();
-  map_root_ = home.empty() ? ".maps" : home + "/.maps";
+  map_root_ = home.empty() ? "maps" : home + "/maps";
   default_map_update_worker_ = std::thread(&MapManager::DefaultMapUpdateWorkerLoop, this);
 }
 
