@@ -317,7 +317,7 @@ const ClientRobotMessage$json = {
       '5': 11,
       '6': '.ros_gui_backend.pb.Twist',
       '9': 0,
-      '10': 'cmdVel'
+      '10': 'cmdVelJoy'
     },
     {
       '1': 'nav_goal',
@@ -365,10 +365,10 @@ const ClientRobotMessage$json = {
 final $typed_data.Uint8List clientRobotMessageDescriptor = $convert.base64Decode(
     'ChJDbGllbnRSb2JvdE1lc3NhZ2USYwoXY29udHJvbF9zdWJzY3JpYmVfaW1hZ2UYASABKAsyKS'
     '5yb3NfZ3VpX2JhY2tlbmQucGIuQ29udHJvbFN1YnNjcmliZUltYWdlSABSFWNvbnRyb2xTdWJz'
-    'Y3JpYmVJbWFnZRI0CgdjbWRfdmVsGAIgASgLMhkucm9zX2d1aV9iYWNrZW5kLnBiLlR3aXN0SA'
-    'BSBmNtZFZlbBI8CghuYXZfZ29hbBgDIAEoCzIfLnJvc19ndWlfYmFja2VuZC5wYi5Qb3NlU3Rh'
-    'bXBlZEgAUgduYXZHb2FsEj4KCmNhbmNlbF9uYXYYBCABKAsyHS5yb3NfZ3VpX2JhY2tlbmQucG'
-    'IuQ2FuY2VsTmF2SABSCWNhbmNlbE5hdhJFCgVyZWxvYxgFIAEoCzItLnJvc19ndWlfYmFja2Vu'
-    'ZC5wYi5Qb3NlV2l0aENvdmFyaWFuY2VTdGFtcGVkSABSBXJlbG9jEmYKGHRyYW5zZm9ybV9sb2'
-    '9rdXBfcmVxdWVzdBgHIAEoCzIqLnJvc19ndWlfYmFja2VuZC5wYi5UcmFuc2Zvcm1Mb29rdXBS'
-    'ZXF1ZXN0SABSFnRyYW5zZm9ybUxvb2t1cFJlcXVlc3RCCQoHcGF5bG9hZA==');
+    'Y3JpYmVJbWFnZRI7CgtjbWRfdmVsX2pveRgCIAEoCzIZLnJvc19ndWlfYmFja2VuZC5wYi5Ud2'
+    'lzdEgAUgljbWRWZWxKb3kSPAoIbmF2X2dvYWwYAyABKAsyHy5yb3NfZ3VpX2JhY2tlbmQucGIu'
+    'UG9zZVN0YW1wZWRIAFIHbmF2R29hbBI+CgpjYW5jZWxfbmF2GAQgASgLMh0ucm9zX2d1aV9iYW'
+    'NrZW5kLnBiLkNhbmNlbE5hdkgAUgljYW5jZWxOYXYSRQoFcmVsb2MYBSABKAsyLS5yb3NfZ3Vp'
+    'X2JhY2tlbmQucGIuUG9zZVdpdGhDb3ZhcmlhbmNlU3RhbXBlZEgAUgVyZWxvYxJmChh0cmFuc2'
+    'Zvcm1fbG9va3VwX3JlcXVlc3QYByABKAsyKi5yb3NfZ3VpX2JhY2tlbmQucGIuVHJhbnNmb3Jt'
+    'TG9va3VwUmVxdWVzdEgAUhZ0cmFuc2Zvcm1Mb29rdXBSZXF1ZXN0QgkKB3BheWxvYWQ=');

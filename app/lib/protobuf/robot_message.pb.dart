@@ -887,7 +887,7 @@ class RobotMessage extends $pb.GeneratedMessage {
 
 enum ClientRobotMessage_Payload {
   controlSubscribeImage,
-  cmdVel,
+  cmdVelJoy,
   navGoal,
   cancelNav,
   reloc,
@@ -898,7 +898,7 @@ enum ClientRobotMessage_Payload {
 class ClientRobotMessage extends $pb.GeneratedMessage {
   factory ClientRobotMessage({
     ControlSubscribeImage? controlSubscribeImage,
-    $0.Twist? cmdVel,
+    $0.Twist? cmdVelJoy,
     $0.PoseStamped? navGoal,
     CancelNav? cancelNav,
     $0.PoseWithCovarianceStamped? reloc,
@@ -907,7 +907,7 @@ class ClientRobotMessage extends $pb.GeneratedMessage {
     final result = create();
     if (controlSubscribeImage != null)
       result.controlSubscribeImage = controlSubscribeImage;
-    if (cmdVel != null) result.cmdVel = cmdVel;
+    if (cmdVelJoy != null) result.cmdVelJoy = cmdVelJoy;
     if (navGoal != null) result.navGoal = navGoal;
     if (cancelNav != null) result.cancelNav = cancelNav;
     if (reloc != null) result.reloc = reloc;
@@ -928,7 +928,7 @@ class ClientRobotMessage extends $pb.GeneratedMessage {
   static const $core.Map<$core.int, ClientRobotMessage_Payload>
       _ClientRobotMessage_PayloadByTag = {
     1: ClientRobotMessage_Payload.controlSubscribeImage,
-    2: ClientRobotMessage_Payload.cmdVel,
+    2: ClientRobotMessage_Payload.cmdVelJoy,
     3: ClientRobotMessage_Payload.navGoal,
     4: ClientRobotMessage_Payload.cancelNav,
     5: ClientRobotMessage_Payload.reloc,
@@ -944,7 +944,7 @@ class ClientRobotMessage extends $pb.GeneratedMessage {
     ..aOM<ControlSubscribeImage>(
         1, _omitFieldNames ? '' : 'controlSubscribeImage',
         subBuilder: ControlSubscribeImage.create)
-    ..aOM<$0.Twist>(2, _omitFieldNames ? '' : 'cmdVel',
+    ..aOM<$0.Twist>(2, _omitFieldNames ? '' : 'cmdVelJoy',
         subBuilder: $0.Twist.create)
     ..aOM<$0.PoseStamped>(3, _omitFieldNames ? '' : 'navGoal',
         subBuilder: $0.PoseStamped.create)
@@ -1005,15 +1005,15 @@ class ClientRobotMessage extends $pb.GeneratedMessage {
   ControlSubscribeImage ensureControlSubscribeImage() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $0.Twist get cmdVel => $_getN(1);
+  $0.Twist get cmdVelJoy => $_getN(1);
   @$pb.TagNumber(2)
-  set cmdVel($0.Twist value) => $_setField(2, value);
+  set cmdVelJoy($0.Twist value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasCmdVel() => $_has(1);
+  $core.bool hasCmdVelJoy() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCmdVel() => $_clearField(2);
+  void clearCmdVelJoy() => $_clearField(2);
   @$pb.TagNumber(2)
-  $0.Twist ensureCmdVel() => $_ensure(1);
+  $0.Twist ensureCmdVelJoy() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $0.PoseStamped get navGoal => $_getN(2);

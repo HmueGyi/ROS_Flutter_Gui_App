@@ -105,9 +105,8 @@
 
 - [ ] Build script run ပါ
   ```bash
-  cd ~/Desktop/robot_sim/src/rom2109/ROS_Flutter_Gui_App
+  cd ~/Desktop/robot_sim/src/rom2109/ROS_Flutter_Gui_App/
   ./build.sh
-  ./build_cn.sh
   ```
   > ✅ Success ဆိုရင် ဒီ output တွေ မြင်ရပါမယ်:
   > ```

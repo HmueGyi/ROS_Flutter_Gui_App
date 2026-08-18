@@ -574,7 +574,7 @@ class WsChannel {
         ..x = 0.0
         ..y = 0.0
         ..z = vw);
-    final msg = ClientRobotMessage()..cmdVel = twist;
+    final msg = ClientRobotMessage()..cmdVelJoy = twist;
     ws.sink.add(msg.writeToBuffer());
   }
 
